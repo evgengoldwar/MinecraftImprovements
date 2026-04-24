@@ -1,4 +1,4 @@
-package com.myname.mymodid;
+package MinecraftImprovements;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -10,13 +10,18 @@ import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.event.FMLServerStartingEvent;
 
-@Mod(modid = MyMod.MODID, version = Tags.VERSION, name = "MyMod", acceptedMinecraftVersions = "[1.7.10]")
-public class MyMod {
+@Mod(
+    modid = MinecraftImprovements.MODID,
+    version = Tags.VERSION,
+    name = MinecraftImprovements.MODNAME,
+    acceptedMinecraftVersions = "[1.7.10]")
+public class MinecraftImprovements {
 
-    public static final String MODID = "mymodid";
+    public static final String MODID = "MinecraftImprovements";
+    public static final String MODNAME = "Minecraft Improvements";
     public static final Logger LOG = LogManager.getLogger(MODID);
 
-    @SidedProxy(clientSide = "com.myname.mymodid.ClientProxy", serverSide = "com.myname.mymodid.CommonProxy")
+    @SidedProxy(clientSide = "MinecraftImprovements.ClientProxy", serverSide = "MinecraftImprovements.CommonProxy")
     public static CommonProxy proxy;
 
     @Mod.EventHandler

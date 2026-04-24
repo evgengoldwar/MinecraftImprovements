@@ -1,4 +1,4 @@
-package com.myname.mymodid;
+package MinecraftImprovements;
 
 import java.io.File;
 

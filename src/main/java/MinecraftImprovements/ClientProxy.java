@@ -1,4 +1,4 @@
-package com.myname.mymodid;
+package MinecraftImprovements;
 
 public class ClientProxy extends CommonProxy {
 
