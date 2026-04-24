@@ -2,6 +2,7 @@ package MinecraftImprovements.Hud.Core;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.entity.EntityClientPlayerMP;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.MathHelper;
 
 public abstract class InfoLine {
@@ -36,5 +37,9 @@ public abstract class InfoLine {
 
     public int getZ() {
         return MathHelper.floor_double(playerMP.posZ);
+    }
+
+    public ItemStack getItemStack() {
+        return null;
     }
 }

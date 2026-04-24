@@ -2,6 +2,8 @@ package MinecraftImprovements.Hud.Core.InfoLines;
 
 import MinecraftImprovements.Hud.Core.DataStorage;
 import MinecraftImprovements.Hud.Core.InfoLine;
+import net.minecraft.init.Items;
+import net.minecraft.item.ItemStack;
 
 public class InfoMemory extends InfoLine {
 
@@ -40,5 +42,10 @@ public class InfoMemory extends InfoLine {
             DataStorage.serverMemUsed,
             DataStorage.serverMemAllocated,
             DataStorage.serverMemMax);
+    }
+
+    @Override
+    public ItemStack getItemStack() {
+        return new ItemStack(Items.redstone);
     }
 }

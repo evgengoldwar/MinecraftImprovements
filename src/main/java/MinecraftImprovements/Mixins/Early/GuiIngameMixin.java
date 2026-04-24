@@ -6,9 +6,13 @@ import java.util.List;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.gui.GuiIngame;
+import net.minecraft.client.renderer.RenderHelper;
+import net.minecraft.client.renderer.entity.RenderItem;
+import net.minecraft.item.ItemStack;
 import net.minecraftforge.client.GuiIngameForge;
 
 import org.lwjgl.opengl.GL11;
+import org.lwjgl.opengl.GL12;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;
@@ -44,17 +48,53 @@ public class GuiIngameMixin extends GuiIngame {
 
         for (InfoLine line : orderedLines) {
             if (!line.canRender()) continue;
-            drawHudInfo(line.getLineString(), 0, hudY);
+            drawHudInfo(line.getLineString(), 0, hudY, line.getItemStack());
             hudY += 11;
         }
     }
 
     @Unique
-    private void drawHudInfo(String string, int x, int y) {
+    private void drawHudInfo(String string, int x, int y, ItemStack itemStack) {
         GL11.glPushMatrix();
-        GL11.glScalef(1.0F, 1.0F, 1.0F);
+
         FontRenderer fr = mc.fontRenderer;
-        fr.drawString(string, x + 4, y + 4, 14737632);
+
+        if (itemStack != null) {
+            GL11.glPushMatrix();
+
+            float scaleItem = 0.5F;
+            GL11.glScalef(scaleItem, scaleItem, scaleItem);
+
+            int scaledX = (int) ((x + 2) / scaleItem);
+            int scaledY = (int) ((y + 2) / scaleItem) + 3;
+
+            RenderHelper.enableGUIStandardItemLighting();
+
+            GL11.glEnable(GL12.GL_RESCALE_NORMAL);
+            GL11.glEnable(GL11.GL_COLOR_MATERIAL);
+
+            RenderItem renderItem = RenderItem.getInstance();
+            renderItem.zLevel = 100.0F;
+
+            renderItem.renderItemAndEffectIntoGUI(
+                fr,
+                mc.renderEngine,
+                itemStack,
+                scaledX,
+                scaledY
+            );
+
+            renderItem.zLevel = 0.0F;
+
+            GL11.glDisable(GL11.GL_LIGHTING);
+
+            GL11.glPopMatrix();
+
+            fr.drawString(string, x + 12, y + 4, 14737632);
+        } else {
+            fr.drawString(string, x + 4, y + 4, 14737632);
+        }
+
         GL11.glPopMatrix();
     }
 }
