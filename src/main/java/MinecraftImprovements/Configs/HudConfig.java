@@ -4,7 +4,7 @@ import static MinecraftImprovements.MinecraftImprovements.MODID;
 
 import com.gtnewhorizon.gtnhlib.config.Config;
 
-@Config(modid = MODID, category = "HUD", configSubDirectory = "Minecraft Improvements")
+@Config(modid = MODID, category = "hud", configSubDirectory = "Minecraft Improvements")
 @Config.Entry(ConfigEntry.HudCategory.class)
 public class HudConfig {
 
