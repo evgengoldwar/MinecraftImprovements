@@ -1,5 +1,10 @@
 package MinecraftImprovements.Hud;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import net.minecraftforge.common.MinecraftForge;
+
 import MinecraftImprovements.Configs.HudConfig;
 import MinecraftImprovements.Hud.Core.InfoLine;
 import MinecraftImprovements.Hud.Core.InfoLines.InfoFPS;
@@ -10,17 +15,15 @@ import MinecraftImprovements.Hud.Core.InfoLines.InfoTPS;
 import MinecraftImprovements.Hud.Event.JoinWorldEvent;
 import MinecraftImprovements.Hud.Event.TickListener;
 import cpw.mods.fml.common.FMLCommonHandler;
-import net.minecraftforge.common.MinecraftForge;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class Hud {
 
     public static List<InfoLine> lines = new ArrayList<>();
 
     public static void initEvent() {
-        FMLCommonHandler.instance().bus().register(new TickListener());
+        FMLCommonHandler.instance()
+            .bus()
+            .register(new TickListener());
         MinecraftForge.EVENT_BUS.register(new JoinWorldEvent());
     }
 

@@ -1,12 +1,8 @@
 package MinecraftImprovements.Configs;
 
-import com.gtnewhorizon.gtnhlib.config.Config;
-import cpw.mods.fml.client.config.GuiConfig;
-import cpw.mods.fml.client.config.GuiConfigEntries;
-import cpw.mods.fml.client.config.IConfigElement;
-import net.minecraft.util.EnumChatFormatting;
-
 import static MinecraftImprovements.MinecraftImprovements.MODID;
+
+import com.gtnewhorizon.gtnhlib.config.Config;
 
 @Config(modid = MODID, category = "HUD", configSubDirectory = "Minecraft Improvements")
 @Config.Entry(ConfigEntry.HudCategory.class)

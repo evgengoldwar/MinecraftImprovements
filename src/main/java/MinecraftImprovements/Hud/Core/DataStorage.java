@@ -1,10 +1,10 @@
 package MinecraftImprovements.Hud.Core;
 
-import net.minecraft.client.Minecraft;
-import net.minecraft.util.MathHelper;
-
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+
+import net.minecraft.client.Minecraft;
+import net.minecraft.util.MathHelper;
 
 public class DataStorage {
 
@@ -17,7 +17,8 @@ public class DataStorage {
 
     public static void getClientTPS() {
         try {
-            long[] tickTimes = Minecraft.getMinecraft().getIntegratedServer().tickTimeArray;
+            long[] tickTimes = Minecraft.getMinecraft()
+                .getIntegratedServer().tickTimeArray;
             mspt = round(MathHelper.average(tickTimes) * 1.0E-6D);
             tps = round(1000.0D / mspt);
 
@@ -36,7 +37,8 @@ public class DataStorage {
     }
 
     private static double round(double value) {
-        return (new BigDecimal(value)).setScale(2, RoundingMode.HALF_UP).doubleValue();
+        return (new BigDecimal(value)).setScale(2, RoundingMode.HALF_UP)
+            .doubleValue();
     }
 
     public static void resetTPS() {

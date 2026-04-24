@@ -1,21 +1,23 @@
 package MinecraftImprovements.Mixins.Early;
 
-import MinecraftImprovements.Hud.Core.DataStorage;
-import MinecraftImprovements.Hud.Network.OSLHandshakePayload;
-import io.netty.buffer.ByteBuf;
-import io.netty.buffer.Unpooled;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.network.NetHandlerPlayClient;
 import net.minecraft.network.NetworkManager;
 import net.minecraft.network.play.client.C17PacketCustomPayload;
 import net.minecraft.network.play.server.S38PacketPlayerListItem;
 import net.minecraft.network.play.server.S3FPacketCustomPayload;
+
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+
+import MinecraftImprovements.Hud.Core.DataStorage;
+import MinecraftImprovements.Hud.Network.OSLHandshakePayload;
+import io.netty.buffer.ByteBuf;
+import io.netty.buffer.Unpooled;
 
 @Mixin(value = NetHandlerPlayClient.class)
 public class NetHandlerPlayerClientMixin {
@@ -39,7 +41,8 @@ public class NetHandlerPlayerClientMixin {
         if (packet == null || packet.func_149122_c() == null) {
             return;
         }
-        if (packet.func_149122_c().equals(Minecraft.getMinecraft().thePlayer.getDisplayName())) {
+        if (packet.func_149122_c()
+            .equals(Minecraft.getMinecraft().thePlayer.getDisplayName())) {
             DataStorage.ping = packet.func_149120_e();
         }
     }
@@ -51,10 +54,11 @@ public class NetHandlerPlayerClientMixin {
             return;
         }
 
-        if (packet.func_149169_c().equals(OSLHandshakePayload.CHANNEL + "|TPS")) {
-//            if (!MicroHUD.CONFIG.infoTps) {
-//                return;
-//            }
+        if (packet.func_149169_c()
+            .equals(OSLHandshakePayload.CHANNEL + "|TPS")) {
+            // if (!MicroHUD.CONFIG.infoTps) {
+            // return;
+            // }
 
             ByteBuf bytebuf = Unpooled.wrappedBuffer(packet.func_149168_d());
             try {
@@ -65,10 +69,11 @@ public class NetHandlerPlayerClientMixin {
             } catch (Exception ignored) {}
         }
 
-        if (packet.func_149169_c().equals(OSLHandshakePayload.CHANNEL + "|Mem")) {
-//            if (!MicroHUD.CONFIG.infoServerMemory) {
-//                return;
-//            }
+        if (packet.func_149169_c()
+            .equals(OSLHandshakePayload.CHANNEL + "|Mem")) {
+            // if (!MicroHUD.CONFIG.infoServerMemory) {
+            // return;
+            // }
 
             ByteBuf bytebuf = Unpooled.wrappedBuffer(packet.func_149168_d());
             try {

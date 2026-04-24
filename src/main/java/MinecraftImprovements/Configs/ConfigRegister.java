@@ -13,7 +13,7 @@ public class ConfigRegister {
         try {
             ConfigurationManager.registerConfig(configClass);
         } catch (ConfigException e) {
-            throw  new RuntimeException(e);
+            throw new RuntimeException(e);
         }
     }
 }

@@ -1,11 +1,13 @@
 package MinecraftImprovements.Mixins.Early;
 
-import MinecraftImprovements.Hud.Core.InfoLine;
-import MinecraftImprovements.Hud.Hud;
+import java.util.Comparator;
+import java.util.List;
+
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.gui.GuiIngame;
 import net.minecraftforge.client.GuiIngameForge;
+
 import org.lwjgl.opengl.GL11;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -14,8 +16,8 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-import java.util.Comparator;
-import java.util.List;
+import MinecraftImprovements.Hud.Core.InfoLine;
+import MinecraftImprovements.Hud.Hud;
 
 @Mixin(value = GuiIngameForge.class)
 public class GuiIngameMixin extends GuiIngame {
@@ -27,13 +29,12 @@ public class GuiIngameMixin extends GuiIngame {
         super(mc);
     }
 
-    @Inject(method = "renderHUDText",
+    @Inject(
+        method = "renderHUDText",
         at = @At(
             value = "FIELD",
             target = "Lnet/minecraft/client/settings/GameSettings;showDebugInfo:Z",
-            shift = At.Shift.BEFORE
-        )
-    )
+            shift = At.Shift.BEFORE))
     private void renderHud(int width, int height, CallbackInfo ci) {
         int hudY = 0;
 

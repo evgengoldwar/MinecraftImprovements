@@ -17,8 +17,7 @@ public enum Mixins implements IMixins {
             "InventoryEffectRendererMixin",
             "NetHandlerPlayerClientMixin",
             "GuiIngameMixin",
-            "MinecraftAccessor"
-        )
+            "MinecraftAccessor")
         .setPhase(Phase.EARLY));
 
     private final MixinBuilder builder;

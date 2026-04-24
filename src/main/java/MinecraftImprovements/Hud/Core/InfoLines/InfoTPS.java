@@ -20,7 +20,11 @@ public class InfoTPS extends InfoLine {
     }
 
     public static String getTPS() {
-        return String.format("TPS: %s%s §r(MSPT: %s%s§r)",
-            DataStorage.getTPSColor(), DataStorage.tps, DataStorage.getMSPTColor(), DataStorage.mspt);
+        return String.format(
+            "TPS: %s%s §r(MSPT: %s%s§r)",
+            DataStorage.getTPSColor(),
+            DataStorage.tps,
+            DataStorage.getMSPTColor(),
+            DataStorage.mspt);
     }
 }

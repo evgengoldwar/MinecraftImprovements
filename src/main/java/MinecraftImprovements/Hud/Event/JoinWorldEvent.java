@@ -1,12 +1,13 @@
 package MinecraftImprovements.Hud.Event;
 
-import MinecraftImprovements.Hud.Core.DataStorage;
-import MinecraftImprovements.Hud.Hud;
-import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import net.minecraft.client.entity.EntityClientPlayerMP;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraftforge.event.entity.EntityJoinWorldEvent;
+
+import MinecraftImprovements.Hud.Core.DataStorage;
+import MinecraftImprovements.Hud.Hud;
+import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 
 public class JoinWorldEvent {
 

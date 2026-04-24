@@ -1,6 +1,5 @@
 package MinecraftImprovements.Hud.Core;
 
-import MinecraftImprovements.Hud.Hud;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.entity.EntityClientPlayerMP;
 import net.minecraft.util.MathHelper;
