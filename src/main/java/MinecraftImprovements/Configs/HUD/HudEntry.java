@@ -1,4 +1,4 @@
-package MinecraftImprovements.Configs;
+package MinecraftImprovements.Configs.HUD;
 
 import net.minecraft.util.EnumChatFormatting;
 
@@ -6,7 +6,7 @@ import cpw.mods.fml.client.config.GuiConfig;
 import cpw.mods.fml.client.config.GuiConfigEntries;
 import cpw.mods.fml.client.config.IConfigElement;
 
-public class ConfigEntry {
+public class HudEntry {
 
     public static class HudCategory extends GuiConfigEntries.CategoryEntry {
 
@@ -24,6 +24,16 @@ public class ConfigEntry {
             super(owningScreen, owningEntryList, configElement);
 
             this.btnSelectCategory.displayString = EnumChatFormatting.GREEN + "HUD Order";
+        }
+    }
+
+    public static class HudItemsCategory extends GuiConfigEntries.CategoryEntry {
+
+        public HudItemsCategory(GuiConfig owningScreen, GuiConfigEntries owningEntryList,
+            IConfigElement<?> configElement) {
+            super(owningScreen, owningEntryList, configElement);
+
+            this.btnSelectCategory.displayString = EnumChatFormatting.GREEN + "HUD Items";
         }
     }
 }

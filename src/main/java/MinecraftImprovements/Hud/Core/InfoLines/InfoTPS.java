@@ -1,10 +1,8 @@
 package MinecraftImprovements.Hud.Core.InfoLines;
 
+import MinecraftImprovements.Configs.HUD.HudConfig;
 import MinecraftImprovements.Hud.Core.DataStorage;
 import MinecraftImprovements.Hud.Core.InfoLine;
-import net.minecraft.init.Blocks;
-import net.minecraft.init.Items;
-import net.minecraft.item.ItemStack;
 
 public class InfoTPS extends InfoLine {
 
@@ -32,7 +30,7 @@ public class InfoTPS extends InfoLine {
     }
 
     @Override
-    public ItemStack getItemStack() {
-        return new ItemStack(Blocks.command_block);
+    public String getItemName() {
+        return HudConfig.hudItems.tpsItem;
     }
 }

@@ -56,9 +56,6 @@ public class NetHandlerPlayerClientMixin {
 
         if (packet.func_149169_c()
             .equals(OSLHandshakePayload.CHANNEL + "|TPS")) {
-            // if (!MicroHUD.CONFIG.infoTps) {
-            // return;
-            // }
 
             ByteBuf bytebuf = Unpooled.wrappedBuffer(packet.func_149168_d());
             try {
@@ -71,9 +68,6 @@ public class NetHandlerPlayerClientMixin {
 
         if (packet.func_149169_c()
             .equals(OSLHandshakePayload.CHANNEL + "|Mem")) {
-            // if (!MicroHUD.CONFIG.infoServerMemory) {
-            // return;
-            // }
 
             ByteBuf bytebuf = Unpooled.wrappedBuffer(packet.func_149168_d());
             try {

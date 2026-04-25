@@ -1,9 +1,8 @@
 package MinecraftImprovements.Hud.Core.InfoLines;
 
+import MinecraftImprovements.Configs.HUD.HudConfig;
 import MinecraftImprovements.Hud.Core.DataStorage;
 import MinecraftImprovements.Hud.Core.InfoLine;
-import net.minecraft.init.Items;
-import net.minecraft.item.ItemStack;
 
 public class InfoMemory extends InfoLine {
 
@@ -45,7 +44,7 @@ public class InfoMemory extends InfoLine {
     }
 
     @Override
-    public ItemStack getItemStack() {
-        return new ItemStack(Items.redstone);
+    public String getItemName() {
+        return HudConfig.hudItems.memoryItem;
     }
 }

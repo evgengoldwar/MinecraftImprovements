@@ -2,12 +2,15 @@ package MinecraftImprovements.Hud.Core;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.entity.EntityClientPlayerMP;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.MathHelper;
 
 public abstract class InfoLine {
 
     private final int order;
+    private ItemStack cachedStack = null;
+    private String cachedItemName = null;
     public final Minecraft mc = Minecraft.getMinecraft();
     public final EntityClientPlayerMP playerMP = mc.thePlayer;
 
@@ -39,7 +42,31 @@ public abstract class InfoLine {
         return MathHelper.floor_double(playerMP.posZ);
     }
 
-    public ItemStack getItemStack() {
-        return null;
+    public String getItemName() {
+        return "";
+    }
+
+    public ItemStack getChachedItemStack() {
+        String currentItemName = getItemName();
+
+        if (currentItemName != null && currentItemName.equals(cachedItemName)) {
+            return cachedStack;
+        }
+
+        cachedItemName = currentItemName;
+
+        if (currentItemName == null || currentItemName.isEmpty()) {
+            cachedStack = null;
+            return null;
+        }
+
+        String[] parts = currentItemName.split("/");
+        String registryName = parts[0];
+        int meta = parts.length > 1 ? Integer.parseInt(parts[1]) : 0;
+
+        Item item = (Item) Item.itemRegistry.getObject(registryName);
+        cachedStack = (item != null) ? new ItemStack(item, 1, meta) : null;
+
+        return cachedStack;
     }
 }

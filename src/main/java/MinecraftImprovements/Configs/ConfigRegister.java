@@ -3,6 +3,8 @@ package MinecraftImprovements.Configs;
 import com.gtnewhorizon.gtnhlib.config.ConfigException;
 import com.gtnewhorizon.gtnhlib.config.ConfigurationManager;
 
+import MinecraftImprovements.Configs.HUD.HudConfig;
+
 public class ConfigRegister {
 
     public static void init() {

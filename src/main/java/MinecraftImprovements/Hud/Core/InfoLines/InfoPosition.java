@@ -1,8 +1,7 @@
 package MinecraftImprovements.Hud.Core.InfoLines;
 
+import MinecraftImprovements.Configs.HUD.HudConfig;
 import MinecraftImprovements.Hud.Core.InfoLine;
-import net.minecraft.init.Blocks;
-import net.minecraft.item.ItemStack;
 
 public class InfoPosition extends InfoLine {
 
@@ -16,7 +15,7 @@ public class InfoPosition extends InfoLine {
     }
 
     @Override
-    public ItemStack getItemStack() {
-        return new ItemStack(Blocks.grass);
+    public String getItemName() {
+        return HudConfig.hudItems.positionItem;
     }
 }

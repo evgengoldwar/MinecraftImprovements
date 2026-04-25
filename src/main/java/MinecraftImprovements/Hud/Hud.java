@@ -5,7 +5,7 @@ import java.util.List;
 
 import net.minecraftforge.common.MinecraftForge;
 
-import MinecraftImprovements.Configs.HudConfig;
+import MinecraftImprovements.Configs.HUD.HudConfig;
 import MinecraftImprovements.Hud.Core.InfoLine;
 import MinecraftImprovements.Hud.Core.InfoLines.InfoFPS;
 import MinecraftImprovements.Hud.Core.InfoLines.InfoMemory;
@@ -36,5 +36,9 @@ public class Hud {
         lines.add(new InfoTPS(HudConfig.hudOrder.tpsOrder));
         lines.add(new InfoPosition(HudConfig.hudOrder.positionOrder));
         lines.add(new InfoFPS(HudConfig.hudOrder.fpsOrder));
+
+        for (InfoLine line : lines) {
+            System.out.println(line.getLineString());
+        }
     }
 }

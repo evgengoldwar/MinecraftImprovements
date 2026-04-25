@@ -48,7 +48,7 @@ public class GuiIngameMixin extends GuiIngame {
 
         for (InfoLine line : orderedLines) {
             if (!line.canRender()) continue;
-            drawHudInfo(line.getLineString(), 0, hudY, line.getItemStack());
+            drawHudInfo(line.getLineString(), 0, hudY, line.getChachedItemStack());
             hudY += 11;
         }
     }
@@ -76,13 +76,7 @@ public class GuiIngameMixin extends GuiIngame {
             RenderItem renderItem = RenderItem.getInstance();
             renderItem.zLevel = 100.0F;
 
-            renderItem.renderItemAndEffectIntoGUI(
-                fr,
-                mc.renderEngine,
-                itemStack,
-                scaledX,
-                scaledY
-            );
+            renderItem.renderItemAndEffectIntoGUI(fr, mc.renderEngine, itemStack, scaledX, scaledY);
 
             renderItem.zLevel = 0.0F;
 

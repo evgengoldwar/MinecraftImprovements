@@ -1,9 +1,8 @@
 package MinecraftImprovements.Hud.Core.InfoLines;
 
+import MinecraftImprovements.Configs.HUD.HudConfig;
 import MinecraftImprovements.Hud.Core.InfoLine;
 import MinecraftImprovements.Mixins.Early.MinecraftAccessor;
-import net.minecraft.init.Items;
-import net.minecraft.item.ItemStack;
 
 public class InfoFPS extends InfoLine {
 
@@ -17,7 +16,7 @@ public class InfoFPS extends InfoLine {
     }
 
     @Override
-    public ItemStack getItemStack() {
-        return new ItemStack(Items.clock);
+    public String getItemName() {
+        return HudConfig.hudItems.fpsItem;
     }
 }
