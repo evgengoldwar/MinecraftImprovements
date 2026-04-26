@@ -16,11 +16,11 @@ public class InfoPosition extends InfoLine {
 
     @Override
     public String getItemName() {
-        return HudConfig.hudItems.positionItem;
+        return HudConfig.hudItems.PositionItem;
     }
 
     @Override
     public boolean canRender() {
-        return HudConfig.hudEnabled.positionEnable;
+        return HudConfig.hudEnabled.PositionEnable;
     }
 }

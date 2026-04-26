@@ -12,7 +12,7 @@ public class InfoPing extends InfoLine {
 
     @Override
     public boolean canRender() {
-        return !mc.isSingleplayer() && HudConfig.hudEnabled.pingEnable;
+        return !mc.isSingleplayer() && HudConfig.hudEnabled.PingEnable;
     }
 
     @Override
@@ -22,6 +22,6 @@ public class InfoPing extends InfoLine {
 
     @Override
     public String getItemName() {
-        return HudConfig.hudItems.pingItem;
+        return HudConfig.hudItems.PingItem;
     }
 }

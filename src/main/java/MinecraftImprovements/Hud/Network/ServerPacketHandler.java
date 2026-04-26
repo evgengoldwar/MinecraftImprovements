@@ -25,8 +25,7 @@ public class ServerPacketHandler {
                 String channel = buffer.readStringFromBuffer(256);
                 channels.add(channel);
             }
-        } catch (IOException ignored) {
-        } finally {
+        } catch (IOException ignored) {} finally {
             buffer.release();
         }
 

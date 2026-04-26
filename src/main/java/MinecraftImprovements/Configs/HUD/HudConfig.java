@@ -4,96 +4,97 @@ import static MinecraftImprovements.MinecraftImprovements.MODID;
 
 import com.gtnewhorizon.gtnhlib.config.Config;
 
-@Config(modid = MODID, category = "hud", configSubDirectory = "Minecraft Improvements")
-@Config.Entry(HudEntry.HudCategory.class)
+@Config(
+    modid = MODID,
+    category = "hud",
+    configSubDirectory = "Minecraft Improvements",
+    filename = "Minecraft Improvements")
+@Config.LangKey("minecraftimprovements.config.hud.name")
 public class HudConfig {
 
     public static final HudOrder hudOrder = new HudOrder();
     public static final HudItems hudItems = new HudItems();
     public static final HudEnabled hudEnabled = new HudEnabled();
 
-    @Config.Entry(HudEntry.HudOrderCategory.class)
+    @Config.LangKey("minecraftimprovements.config.hud.hud_order.name")
     public static class HudOrder {
 
-        @Config.Comment("FPS Line order")
         @Config.DefaultInt(1)
         @Config.RangeInt(min = 1, max = 100)
-        public int fpsOrder;
+        public int FpsOrder;
 
-        @Config.Comment("Memory Line order")
         @Config.DefaultInt(4)
         @Config.RangeInt(min = 1, max = 100)
-        public int memoryOrder;
+        public int MemoryOrder;
 
-        @Config.Comment("Ping Line order")
+        @Config.DefaultInt(5)
+        @Config.RangeInt(min = 1, max = 100)
+        public int ServerMemoryOrder;
+
         @Config.DefaultInt(2)
         @Config.RangeInt(min = 1, max = 100)
-        public int pingOrder;
+        public int PingOrder;
 
-        @Config.Comment("Position Line order")
-        @Config.DefaultInt(5)
+        @Config.DefaultInt(6)
         @Config.RangeInt(min = 1, max = 100)
         public int positionOrder;
 
-        @Config.Comment("TPS Line order")
         @Config.DefaultInt(3)
         @Config.RangeInt(min = 1, max = 100)
         public int tpsOrder;
 
-        @Config.Comment("LP Line order")
-        @Config.DefaultInt(6)
+        @Config.DefaultInt(7)
         @Config.RangeInt(min = 1, max = 100)
         public int lpOrder;
 
     }
 
-    @Config.Entry(HudEntry.HudItemsCategory.class)
+    @Config.LangKey("minecraftimprovements.config.hud.hud_icons.name")
     public static class HudItems {
 
-        @Config.Comment("FPS Line item")
         @Config.DefaultString("minecraft:clock")
-        public String fpsItem;
+        public String FpsItem;
 
-        @Config.Comment("Memory Line item")
         @Config.DefaultString("minecraft:redstone")
-        public String memoryItem;
+        public String MemoryItem;
 
-        @Config.Comment("Ping Line item")
+        @Config.DefaultString("minecraft:redstone")
+        public String ServerMemoryItem;
+
         @Config.DefaultString("minecraft:stone")
-        public String pingItem;
+        public String PingItem;
 
-        @Config.Comment("Position Line item")
         @Config.DefaultString("minecraft:grass")
-        public String positionItem;
+        public String PositionItem;
 
-        @Config.Comment("TPS Line order")
         @Config.DefaultString("minecraft:command_block")
-        public String tpsItem;
+        public String TpsItem;
 
     }
 
-    @Config.Entry(HudEntry.HudEnabledCategory.class)
+    @Config.LangKey("minecraftimprovements.config.hud.hud_toggles.name")
     public static class HudEnabled {
 
-        @Config.Comment("FPS Line enable")
         @Config.DefaultBoolean(true)
-        public boolean fpsEnable;
+        public boolean FpsEnable;
 
-        @Config.Comment("Memory Line enable")
         @Config.DefaultBoolean(true)
-        public boolean memoryEnable;
+        public boolean MemoryEnable;
 
-        @Config.Comment("Ping Line enable")
         @Config.DefaultBoolean(true)
-        public boolean pingEnable;
+        public boolean ServerMemoryEnable;
 
-        @Config.Comment("Position Line enable")
         @Config.DefaultBoolean(true)
-        public boolean positionEnable;
+        public boolean PingEnable;
 
-        @Config.Comment("TPS Line enable")
         @Config.DefaultBoolean(true)
-        public boolean tpsEnable;
+        public boolean PositionEnable;
+
+        @Config.DefaultBoolean(true)
+        public boolean TpsEnable;
+
+        @Config.DefaultBoolean(true)
+        public boolean LpEnable;
     }
 
 }

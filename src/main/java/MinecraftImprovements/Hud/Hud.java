@@ -37,12 +37,12 @@ public class Hud {
     public static void initLines() {
         lines.clear();
 
-        lines.add(new InfoMemory(HudConfig.hudOrder.memoryOrder, false));
-        lines.add(new InfoMemory(HudConfig.hudOrder.memoryOrder, true));
-        lines.add(new InfoPing(HudConfig.hudOrder.pingOrder));
+        lines.add(new InfoMemory(HudConfig.hudOrder.MemoryOrder, false));
+        lines.add(new InfoMemory(HudConfig.hudOrder.ServerMemoryOrder, true));
+        lines.add(new InfoPing(HudConfig.hudOrder.PingOrder));
         lines.add(new InfoTPS(HudConfig.hudOrder.tpsOrder));
         lines.add(new InfoPosition(HudConfig.hudOrder.positionOrder));
-        lines.add(new InfoFPS(HudConfig.hudOrder.fpsOrder));
+        lines.add(new InfoFPS(HudConfig.hudOrder.FpsOrder));
 
         if (Loader.isModLoaded(HudUtils.BLOOD_MAGIC_ID)) {
             lines.add(new InfoBloodMagic(HudConfig.hudOrder.lpOrder));

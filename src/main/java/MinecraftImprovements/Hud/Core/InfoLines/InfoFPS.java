@@ -17,11 +17,11 @@ public class InfoFPS extends InfoLine {
 
     @Override
     public String getItemName() {
-        return HudConfig.hudItems.fpsItem;
+        return HudConfig.hudItems.FpsItem;
     }
 
     @Override
     public boolean canRender() {
-        return HudConfig.hudEnabled.fpsEnable;
+        return HudConfig.hudEnabled.FpsEnable;
     }
 }

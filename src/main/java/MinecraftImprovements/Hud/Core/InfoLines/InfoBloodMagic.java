@@ -1,5 +1,6 @@
 package MinecraftImprovements.Hud.Core.InfoLines;
 
+import MinecraftImprovements.Configs.HUD.HudConfig;
 import MinecraftImprovements.Hud.Core.InfoLine;
 import MinecraftImprovements.Hud.Event.BloodMagicEvent;
 import MinecraftImprovements.Hud.HudUtils;
@@ -28,5 +29,10 @@ public class InfoBloodMagic extends InfoLine {
     @Override
     public String getItemName() {
         return "AWWayofTime:weakBloodOrb";
+    }
+
+    @Override
+    public boolean canRender() {
+        return HudConfig.hudEnabled.LpEnable;
     }
 }

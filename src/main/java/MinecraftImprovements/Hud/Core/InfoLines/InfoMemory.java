@@ -15,7 +15,8 @@ public class InfoMemory extends InfoLine {
 
     @Override
     public boolean canRender() {
-        return !(isServer && DataStorage.serverMemUsed == -1) && HudConfig.hudEnabled.memoryEnable;
+        return isServer ? HudConfig.hudEnabled.ServerMemoryEnable && !(DataStorage.serverMemUsed == -1)
+            : HudConfig.hudEnabled.MemoryEnable;
     }
 
     @Override
@@ -45,6 +46,6 @@ public class InfoMemory extends InfoLine {
 
     @Override
     public String getItemName() {
-        return HudConfig.hudItems.memoryItem;
+        return isServer ? HudConfig.hudItems.ServerMemoryItem : HudConfig.hudItems.MemoryItem;
     }
 }
