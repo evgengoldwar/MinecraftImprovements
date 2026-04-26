@@ -6,7 +6,7 @@ import java.util.List;
 import MinecraftImprovements.Hud.Core.InfoLines.InfoThaumcraft;
 import net.minecraftforge.common.MinecraftForge;
 
-import MinecraftImprovements.Configs.HUD.HudConfig;
+import MinecraftImprovements.Configs.HudConfig;
 import MinecraftImprovements.Hud.Core.InfoLine;
 import MinecraftImprovements.Hud.Core.InfoLines.InfoBloodMagic;
 import MinecraftImprovements.Hud.Core.InfoLines.InfoFPS;

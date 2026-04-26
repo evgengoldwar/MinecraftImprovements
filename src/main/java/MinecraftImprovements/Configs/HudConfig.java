@@ -1,4 +1,4 @@
-package MinecraftImprovements.Configs.HUD;
+package MinecraftImprovements.Configs;
 
 import static MinecraftImprovements.MinecraftImprovements.MODID;
 

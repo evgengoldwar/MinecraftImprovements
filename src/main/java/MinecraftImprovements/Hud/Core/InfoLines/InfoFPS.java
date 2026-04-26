@@ -1,6 +1,6 @@
 package MinecraftImprovements.Hud.Core.InfoLines;
 
-import MinecraftImprovements.Configs.HUD.HudConfig;
+import MinecraftImprovements.Configs.HudConfig;
 import MinecraftImprovements.Hud.Core.InfoLine;
 import MinecraftImprovements.Mixins.Early.MinecraftAccessor;
 
