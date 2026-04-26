@@ -39,5 +39,5 @@ dependencies {
     runtimeOnlyNonPublishable('com.github.GTNewHorizons:Angelica:2.0.0-alpha16:dev') { transitive = false }
     compileOnly('com.github.GTNewHorizons:BloodMagic:1.8.14:dev') {transitive = false}
     compileOnly('thaumcraft:Thaumcraft:1.7.10-4.2.3.5:dev') {transitive = false}
-//    implementation('com.github.GTNewHorizons:Baubles-Expanded:2.2.11-GTNH:dev') {transitive=false}
+    compileOnly('com.github.GTNewHorizons:Baubles-Expanded:2.2.11-GTNH:dev') {transitive=false}
 }

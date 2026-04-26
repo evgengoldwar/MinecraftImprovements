@@ -21,34 +21,42 @@ public class HudConfig {
 
         @Config.DefaultInt(1)
         @Config.RangeInt(min = 1, max = 100)
+        @Config.Order(1)
         public int FpsOrder;
 
         @Config.DefaultInt(4)
         @Config.RangeInt(min = 1, max = 100)
+        @Config.Order(2)
         public int MemoryOrder;
 
         @Config.DefaultInt(5)
         @Config.RangeInt(min = 1, max = 100)
+        @Config.Order(3)
         public int ServerMemoryOrder;
 
         @Config.DefaultInt(2)
         @Config.RangeInt(min = 1, max = 100)
+        @Config.Order(4)
         public int PingOrder;
 
         @Config.DefaultInt(6)
         @Config.RangeInt(min = 1, max = 100)
+        @Config.Order(5)
         public int PositionOrder;
 
         @Config.DefaultInt(3)
         @Config.RangeInt(min = 1, max = 100)
+        @Config.Order(6)
         public int TpsOrder;
 
         @Config.DefaultInt(7)
         @Config.RangeInt(min = 1, max = 100)
+        @Config.Order(7)
         public int LpOrder;
 
         @Config.DefaultInt(8)
         @Config.RangeInt(min = 1, max = 100)
+        @Config.Order(8)
         public int WarpOrder;
     }
 
@@ -56,27 +64,35 @@ public class HudConfig {
     public static class HudItems {
 
         @Config.DefaultString("minecraft:clock")
+        @Config.Order(1)
         public String FpsItem;
 
         @Config.DefaultString("minecraft:redstone")
+        @Config.Order(2)
         public String MemoryItem;
 
         @Config.DefaultString("minecraft:redstone")
+        @Config.Order(3)
         public String ServerMemoryItem;
 
         @Config.DefaultString("minecraft:stone")
+        @Config.Order(4)
         public String PingItem;
 
         @Config.DefaultString("minecraft:grass")
+        @Config.Order(5)
         public String PositionItem;
 
         @Config.DefaultString("minecraft:command_block")
+        @Config.Order(6)
         public String TpsItem;
 
         @Config.DefaultString("AWWayofTime:weakBloodOrb")
+        @Config.Order(7)
         public String LpItem;
 
         @Config.DefaultString("Thaumcraft:ItemEldritchObject")
+        @Config.Order(8)
         public String WarpItem;
 
     }
@@ -85,27 +101,35 @@ public class HudConfig {
     public static class HudEnabled {
 
         @Config.DefaultBoolean(true)
+        @Config.Order(1)
         public boolean FpsEnable;
 
         @Config.DefaultBoolean(true)
+        @Config.Order(2)
         public boolean MemoryEnable;
 
         @Config.DefaultBoolean(true)
+        @Config.Order(3)
         public boolean ServerMemoryEnable;
 
         @Config.DefaultBoolean(true)
+        @Config.Order(4)
         public boolean PingEnable;
 
         @Config.DefaultBoolean(true)
+        @Config.Order(5)
         public boolean PositionEnable;
 
         @Config.DefaultBoolean(true)
+        @Config.Order(6)
         public boolean TpsEnable;
 
         @Config.DefaultBoolean(true)
+        @Config.Order(7)
         public boolean LpEnable;
 
         @Config.DefaultBoolean(true)
+        @Config.Order(8)
         public boolean WarpEnable;
     }
 
