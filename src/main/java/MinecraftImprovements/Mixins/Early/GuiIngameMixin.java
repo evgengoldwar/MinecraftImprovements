@@ -87,9 +87,9 @@ public class GuiIngameMixin extends GuiIngame {
 
             GL11.glPopMatrix();
 
-            fr.drawString(string, x + 12, y + 4, 14737632);
+            fr.drawStringWithShadow(string, x + 12, y + 4, 14737632);
         } else {
-            fr.drawString(string, x + 4, y + 4, 14737632);
+            fr.drawStringWithShadow(string, x + 4, y + 4, 14737632);
         }
 
         GL11.glPopMatrix();

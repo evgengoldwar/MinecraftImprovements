@@ -9,6 +9,6 @@ minecraftimprovements.hud.info_line.info_fps=§6%s §rFPS: §a%s
 minecraftimprovements.hud.info_line.info_server_memory=Server RAM: §a%sMB §r/ §a%sMB
 minecraftimprovements.hud.info_line.info_memory=RAM: §a%sMB §r/ §a%sMB
 minecraftimprovements.hud.info_line.info_ping=Ping: §a%s ms
-minecraftimprovements.hud.info_line.info_position=Block: %s %s %s
+minecraftimprovements.hud.info_line.info_position=Pos: %s %s %s
 minecraftimprovements.hud.info_line.info_tps=TPS: %s%s §rMSPT: %s%s
 minecraftimprovements.hud.info_line.info_warp=Warp: %s (P: %s | S: %s | T: %s)
