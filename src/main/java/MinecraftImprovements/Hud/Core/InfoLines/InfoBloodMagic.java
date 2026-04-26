@@ -28,7 +28,7 @@ public class InfoBloodMagic extends InfoLine {
 
     @Override
     public String getItemName() {
-        return "AWWayofTime:weakBloodOrb";
+        return HudConfig.hudItems.LpItem;
     }
 
     @Override

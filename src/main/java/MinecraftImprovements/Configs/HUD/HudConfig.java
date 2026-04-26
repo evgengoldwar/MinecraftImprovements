@@ -70,6 +70,9 @@ public class HudConfig {
         @Config.DefaultString("minecraft:command_block")
         public String TpsItem;
 
+        @Config.DefaultString("AWWayofTime:weakBloodOrb")
+        public String LpItem;
+
     }
 
     @Config.LangKey("minecraftimprovements.config.hud.hud_toggles.name")
