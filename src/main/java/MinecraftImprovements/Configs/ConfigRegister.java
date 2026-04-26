@@ -7,6 +7,7 @@ public class ConfigRegister {
 
     public static void init() {
         register(HudConfig.class);
+        register(GeneralConfig.class);
     }
 
     private static void register(Class<?> configClass) {

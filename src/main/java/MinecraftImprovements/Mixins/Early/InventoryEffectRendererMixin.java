@@ -1,5 +1,6 @@
 package MinecraftImprovements.Mixins.Early;
 
+import MinecraftImprovements.Configs.GeneralConfig;
 import net.minecraft.client.renderer.InventoryEffectRenderer;
 
 import org.spongepowered.asm.mixin.Mixin;
@@ -12,6 +13,8 @@ public class InventoryEffectRendererMixin {
 
     @Inject(method = "func_147044_g", at = @At("HEAD"), cancellable = true)
     private void cancelPotionEffectRendering(CallbackInfo ci) {
-        ci.cancel();
+        if (GeneralConfig.DisablePotionEffect) {
+            ci.cancel();
+        }
     }
 }
