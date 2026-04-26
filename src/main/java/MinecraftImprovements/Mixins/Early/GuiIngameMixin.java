@@ -3,7 +3,6 @@ package MinecraftImprovements.Mixins.Early;
 import java.util.Comparator;
 import java.util.List;
 
-import MinecraftImprovements.Configs.HudConfig;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.gui.GuiIngame;
@@ -21,6 +20,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
+import MinecraftImprovements.Configs.HudConfig;
 import MinecraftImprovements.Hud.Core.InfoLine;
 import MinecraftImprovements.Hud.Hud;
 

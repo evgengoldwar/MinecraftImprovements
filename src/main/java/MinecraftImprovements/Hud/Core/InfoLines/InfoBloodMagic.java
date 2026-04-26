@@ -13,7 +13,7 @@ public class InfoBloodMagic extends InfoLine {
 
     @Override
     public String getLineString() {
-        return "LP: " + getCurrentLP() + " / " + getMaxLP();
+        return tr("info_blood_magic", getCurrentLP(), getMaxLP());
     }
 
     private String getCurrentLP() {

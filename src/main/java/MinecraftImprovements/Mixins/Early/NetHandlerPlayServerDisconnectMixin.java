@@ -8,7 +8,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-import MinecraftImprovements.Hud.Core.ServerDataStorage;
+import MinecraftImprovements.Hud.Core.DataStorage;
 
 @Mixin(NetHandlerPlayServer.class)
 public class NetHandlerPlayServerDisconnectMixin {
@@ -16,6 +16,6 @@ public class NetHandlerPlayServerDisconnectMixin {
     @Inject(method = "onDisconnect", at = @At("HEAD"))
     public void onPlayerDisconnect(IChatComponent reason, CallbackInfo ci) {
         NetHandlerPlayServer handler = (NetHandlerPlayServer) (Object) this;
-        ServerDataStorage.unsubscribeAll(handler.playerEntity);
+        DataStorage.unsubscribeAll(handler.playerEntity);
     }
 }

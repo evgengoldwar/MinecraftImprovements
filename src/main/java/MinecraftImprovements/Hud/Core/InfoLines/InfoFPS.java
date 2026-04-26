@@ -12,7 +12,7 @@ public class InfoFPS extends InfoLine {
 
     @Override
     public String getLineString() {
-        return String.format("%s fps", ((MinecraftAccessor) this.mc).getFps());
+        return tr("info_fps", playerMP.getDisplayName(), ((MinecraftAccessor) this.mc).getFps());
     }
 
     @Override

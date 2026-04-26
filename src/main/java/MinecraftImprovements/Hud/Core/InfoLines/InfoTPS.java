@@ -17,16 +17,7 @@ public class InfoTPS extends InfoLine {
 
     @Override
     public String getLineString() {
-        return String.format("%s", getTPS());
-    }
-
-    public static String getTPS() {
-        return String.format(
-            "TPS: %s%s §rMSPT: %s%s",
-            DataStorage.getTPSColor(),
-            DataStorage.tps,
-            DataStorage.getMSPTColor(),
-            DataStorage.mspt);
+        return tr("info_tps", DataStorage.getTPSColor(), DataStorage.tps, DataStorage.getMSPTColor(), DataStorage.mspt);
     }
 
     @Override

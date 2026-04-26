@@ -11,7 +11,7 @@ public class InfoPosition extends InfoLine {
 
     @Override
     public String getLineString() {
-        return String.format("Block: %s, %s, %s", getX(), getY(), getZ());
+        return tr("info_position", getX(), getY(), getZ());
     }
 
     @Override

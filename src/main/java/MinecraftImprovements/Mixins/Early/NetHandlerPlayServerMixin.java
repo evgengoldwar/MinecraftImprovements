@@ -10,7 +10,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-import MinecraftImprovements.Hud.Core.ServerDataStorage;
+import MinecraftImprovements.Hud.Core.DataStorage;
 import MinecraftImprovements.Hud.Network.ServerPacketHandler;
 import MinecraftImprovements.MinecraftImprovements;
 
@@ -29,11 +29,11 @@ public class NetHandlerPlayServerMixin {
             String prefix = MinecraftImprovements.NETWORK_MODID + "HUD|";
 
             if (channels.contains(prefix + "TPS")) {
-                ServerDataStorage.subscribeTPS(handler.playerEntity);
+                DataStorage.subscribeTPS(handler.playerEntity);
             }
 
             if (channels.contains(prefix + "Mem")) {
-                ServerDataStorage.subscribeMem(handler.playerEntity);
+                DataStorage.subscribeMem(handler.playerEntity);
             }
 
             ci.cancel();

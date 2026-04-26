@@ -1,8 +1,12 @@
 package MinecraftImprovements.Hud.Core.InfoLines;
 
+import static MinecraftImprovements.Hud.HudUtils.getWarpPerm;
+import static MinecraftImprovements.Hud.HudUtils.getWarpSticky;
+import static MinecraftImprovements.Hud.HudUtils.getWarpTemp;
+import static MinecraftImprovements.Hud.HudUtils.getWarpTotal;
+
 import MinecraftImprovements.Configs.HudConfig;
 import MinecraftImprovements.Hud.Core.InfoLine;
-import MinecraftImprovements.Hud.HudUtils;
 
 public class InfoThaumcraft extends InfoLine {
 
@@ -12,7 +16,12 @@ public class InfoThaumcraft extends InfoLine {
 
     @Override
     public String getLineString() {
-        return "Warp: " + HudUtils.getWarpTotal(playerMP) + " (Perm: " + HudUtils.getWarpPerm(playerMP) + " | Sticky: " + HudUtils.getWarpTemp(playerMP) + " | Temp: " + HudUtils.getWarpTemp(playerMP) + ")";
+        return tr(
+            "info_warp",
+            getWarpTotal(playerMP),
+            getWarpPerm(playerMP),
+            getWarpSticky(playerMP),
+            getWarpTemp(playerMP));
     }
 
     @Override

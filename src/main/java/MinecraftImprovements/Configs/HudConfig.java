@@ -4,11 +4,7 @@ import static MinecraftImprovements.MinecraftImprovements.MODID;
 
 import com.gtnewhorizon.gtnhlib.config.Config;
 
-@Config(
-    modid = MODID,
-    category = "hud",
-    configSubDirectory = "Minecraft Improvements",
-    filename = "HudConfig")
+@Config(modid = MODID, category = "hud", configSubDirectory = "Minecraft Improvements", filename = "HudConfig")
 @Config.LangKey("minecraftimprovements.config.hud.name")
 public class HudConfig {
 
@@ -16,7 +12,6 @@ public class HudConfig {
     public static final HudOrder hudOrder = new HudOrder();
     public static final HudItems hudItems = new HudItems();
     public static final HudEnabled hudEnabled = new HudEnabled();
-
 
     @Config.LangKey("minecraftimprovements.config.hud.hud_general.name")
     public static class HudGeneral {

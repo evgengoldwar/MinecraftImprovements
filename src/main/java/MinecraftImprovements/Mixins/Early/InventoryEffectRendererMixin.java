@@ -1,12 +1,13 @@
 package MinecraftImprovements.Mixins.Early;
 
-import MinecraftImprovements.Configs.GeneralConfig;
 import net.minecraft.client.renderer.InventoryEffectRenderer;
 
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+
+import MinecraftImprovements.Configs.GeneralConfig;
 
 @Mixin(InventoryEffectRenderer.class)
 public class InventoryEffectRendererMixin {

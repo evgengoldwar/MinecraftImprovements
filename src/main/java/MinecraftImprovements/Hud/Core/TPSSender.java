@@ -20,7 +20,7 @@ public class TPSSender {
             return;
         }
 
-        if (ServerDataStorage.tpsSubscribers.isEmpty() && ServerDataStorage.memSubscribers.isEmpty()) {
+        if (DataStorage.tpsSubscribers.isEmpty() && DataStorage.memSubscribers.isEmpty()) {
             return;
         }
 
@@ -34,11 +34,11 @@ public class TPSSender {
 
         for (EntityPlayerMP playerMP : server.getConfigurationManager().playerEntityList) {
 
-            if (ServerDataStorage.tpsSubscribers.contains(playerMP.getUniqueID())) {
+            if (DataStorage.tpsSubscribers.contains(playerMP.getUniqueID())) {
                 sendTPSPacket(playerMP, tps, meanTickTime);
             }
 
-            if (ServerDataStorage.memSubscribers.contains(playerMP.getUniqueID())) {
+            if (DataStorage.memSubscribers.contains(playerMP.getUniqueID())) {
                 sendMemPacket(playerMP, usedMem, maxMem, allocatedMem);
             }
         }

@@ -17,7 +17,7 @@ public class InfoPing extends InfoLine {
 
     @Override
     public String getLineString() {
-        return String.format("Ping: %s ms", DataStorage.ping);
+        return tr("info_ping", DataStorage.ping);
     }
 
     @Override

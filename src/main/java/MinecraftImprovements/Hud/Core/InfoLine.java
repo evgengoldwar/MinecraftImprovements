@@ -5,6 +5,7 @@ import net.minecraft.client.entity.EntityClientPlayerMP;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.MathHelper;
+import net.minecraft.util.StatCollector;
 
 public abstract class InfoLine {
 
@@ -68,5 +69,9 @@ public abstract class InfoLine {
         cachedStack = (item != null) ? new ItemStack(item, 1, meta) : null;
 
         return cachedStack;
+    }
+
+    public static String tr(String key, Object... params) {
+        return StatCollector.translateToLocalFormatted("minecraftimprovements.hud.info_line." + key, params);
     }
 }

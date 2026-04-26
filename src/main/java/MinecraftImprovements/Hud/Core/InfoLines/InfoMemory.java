@@ -6,6 +6,7 @@ import MinecraftImprovements.Hud.Core.InfoLine;
 
 public class InfoMemory extends InfoLine {
 
+    private static final int MB = 1048576;
     private final boolean isServer;
 
     public InfoMemory(int order, boolean server) {
@@ -21,27 +22,23 @@ public class InfoMemory extends InfoLine {
 
     @Override
     public String getLineString() {
-        return String
-            .format("%sMem: %s", this.isServer ? "Server " : "", this.isServer ? getServerMemory() : getMemory());
+        return isServer ? tr("info_server_memory", DataStorage.serverMemUsed, DataStorage.serverMemMax)
+            : tr("info_memory", getUsedMemory(), getMaxMemory());
     }
 
-    public static String getMemory() {
+    public int getUsedMemory() {
         Runtime runtime = Runtime.getRuntime();
-
-        int mb = 1048576;
-        String used = (runtime.totalMemory() - runtime.freeMemory()) / (long) mb + "MB / "
-            + runtime.totalMemory() / (long) mb
-            + "MB";
-        String max = runtime.maxMemory() / (long) mb + "MB";
-        return String.format("%s | %s", used, max);
+        return Math.toIntExact((runtime.totalMemory() - runtime.freeMemory()) / (long) MB);
     }
 
-    public static String getServerMemory() {
-        return String.format(
-            "%sMB / %sMB | %sMB",
-            DataStorage.serverMemUsed,
-            DataStorage.serverMemAllocated,
-            DataStorage.serverMemMax);
+    public int getAllocatedMemory() {
+        Runtime runtime = Runtime.getRuntime();
+        return Math.toIntExact(runtime.totalMemory() / (long) MB);
+    }
+
+    public int getMaxMemory() {
+        Runtime runtime = Runtime.getRuntime();
+        return Math.toIntExact(runtime.maxMemory() / (long) MB);
     }
 
     @Override
