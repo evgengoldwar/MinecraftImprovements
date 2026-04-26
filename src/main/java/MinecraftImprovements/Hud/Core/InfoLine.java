@@ -6,6 +6,8 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.MathHelper;
 import net.minecraft.util.StatCollector;
+import net.minecraft.world.World;
+import net.minecraft.world.WorldProvider;
 
 public abstract class InfoLine {
 
@@ -14,6 +16,8 @@ public abstract class InfoLine {
     private String cachedItemName = null;
     public final Minecraft mc = Minecraft.getMinecraft();
     public final EntityClientPlayerMP playerMP = mc.thePlayer;
+    public final World world = playerMP.worldObj;
+    public final WorldProvider worldProvider = world.provider;
 
     public InfoLine(int order) {
         this.order = order;

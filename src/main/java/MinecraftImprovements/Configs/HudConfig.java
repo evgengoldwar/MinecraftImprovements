@@ -72,6 +72,11 @@ public class HudConfig {
         @Config.RangeInt(min = 1, max = 100)
         @Config.Order(8)
         public int WarpOrder;
+
+        @Config.DefaultInt(9)
+        @Config.RangeInt(min = 1, max = 100)
+        @Config.Order(9)
+        public int DimensionOrder;
     }
 
     @Config.LangKey("minecraftimprovements.config.hud.hud_icons.name")
@@ -109,6 +114,9 @@ public class HudConfig {
         @Config.Order(8)
         public String WarpItem;
 
+        @Config.DefaultString("minecraft:portal")
+        @Config.Order(8)
+        public String DimensionItem;
     }
 
     @Config.LangKey("minecraftimprovements.config.hud.hud_toggles.name")
@@ -145,6 +153,10 @@ public class HudConfig {
         @Config.DefaultBoolean(true)
         @Config.Order(8)
         public boolean WarpEnable;
+
+        @Config.DefaultBoolean(true)
+        @Config.Order(9)
+        public boolean DimensionEnable;
     }
 
 }

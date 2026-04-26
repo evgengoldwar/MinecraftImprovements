@@ -3,6 +3,7 @@ package MinecraftImprovements.Hud;
 import java.util.ArrayList;
 import java.util.List;
 
+import MinecraftImprovements.Hud.Core.InfoLines.InfoDimension;
 import net.minecraftforge.common.MinecraftForge;
 
 import MinecraftImprovements.Configs.HudConfig;
@@ -44,6 +45,7 @@ public class Hud {
         lines.add(new InfoTPS(HudConfig.hudOrder.TpsOrder));
         lines.add(new InfoPosition(HudConfig.hudOrder.PositionOrder));
         lines.add(new InfoFPS(HudConfig.hudOrder.FpsOrder));
+        lines.add(new InfoDimension(HudConfig.hudOrder.DimensionOrder));
 
         if (Loader.isModLoaded(HudUtils.BLOOD_MAGIC_ID)) {
             lines.add(new InfoBloodMagic(HudConfig.hudOrder.LpOrder));
