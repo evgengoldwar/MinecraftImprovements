@@ -8,7 +8,7 @@ import com.gtnewhorizon.gtnhlib.config.Config;
     modid = MODID,
     category = "hud",
     configSubDirectory = "Minecraft Improvements",
-    filename = "Minecraft Improvements")
+    filename = "HudConfig")
 @Config.LangKey("minecraftimprovements.config.hud.name")
 public class HudConfig {
 
