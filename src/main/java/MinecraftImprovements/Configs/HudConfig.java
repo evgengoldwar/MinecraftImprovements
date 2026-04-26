@@ -12,9 +12,28 @@ import com.gtnewhorizon.gtnhlib.config.Config;
 @Config.LangKey("minecraftimprovements.config.hud.name")
 public class HudConfig {
 
+    public static final HudGeneral hudGeneral = new HudGeneral();
     public static final HudOrder hudOrder = new HudOrder();
     public static final HudItems hudItems = new HudItems();
     public static final HudEnabled hudEnabled = new HudEnabled();
+
+
+    @Config.LangKey("minecraftimprovements.config.hud.hud_general.name")
+    public static class HudGeneral {
+
+        @Config.DefaultInt(0)
+        @Config.Order(2)
+        public int HudX;
+
+        @Config.DefaultInt(0)
+        @Config.Order(2)
+        public int HudY;
+
+        @Config.DefaultFloat(1.0F)
+        @Config.RangeFloat(min = 0.5F, max = 2.0F)
+        @Config.Order(3)
+        public float HudScale;
+    }
 
     @Config.LangKey("minecraftimprovements.config.hud.hud_order.name")
     public static class HudOrder {

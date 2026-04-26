@@ -1,4 +1,5 @@
 minecraftimprovements.config.hud.name=§cHUD Settings
+minecraftimprovements.config.hud.hud_general.name=§aHUD General
 minecraftimprovements.config.hud.hud_order.name=§aHUD Order
 minecraftimprovements.config.hud.hud_icons.name=§aHUD Icons
 minecraftimprovements.config.hud.hud_toggles.name=§aHUD Toggles

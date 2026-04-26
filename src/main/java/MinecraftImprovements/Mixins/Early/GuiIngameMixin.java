@@ -3,6 +3,7 @@ package MinecraftImprovements.Mixins.Early;
 import java.util.Comparator;
 import java.util.List;
 
+import MinecraftImprovements.Configs.HudConfig;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.gui.GuiIngame;
@@ -40,7 +41,7 @@ public class GuiIngameMixin extends GuiIngame {
             target = "Lnet/minecraft/client/settings/GameSettings;showDebugInfo:Z",
             shift = At.Shift.BEFORE))
     private void renderHud(int width, int height, CallbackInfo ci) {
-        int hudY = 0;
+        int hudY = HudConfig.hudGeneral.HudY;
 
         List<InfoLine> orderedLines = Hud.lines;
 
@@ -48,7 +49,7 @@ public class GuiIngameMixin extends GuiIngame {
 
         for (InfoLine line : orderedLines) {
             if (!line.canRender()) continue;
-            drawHudInfo(line.getLineString(), 0, hudY, line.getChachedItemStack());
+            drawHudInfo(line.getLineString(), HudConfig.hudGeneral.HudX, hudY, line.getChachedItemStack());
             hudY += 11;
         }
     }
@@ -56,6 +57,8 @@ public class GuiIngameMixin extends GuiIngame {
     @Unique
     private void drawHudInfo(String string, int x, int y, ItemStack itemStack) {
         GL11.glPushMatrix();
+        float scaleHud = HudConfig.hudGeneral.HudScale;
+        GL11.glScalef(scaleHud, scaleHud, scaleHud);
 
         FontRenderer fr = mc.fontRenderer;
 
