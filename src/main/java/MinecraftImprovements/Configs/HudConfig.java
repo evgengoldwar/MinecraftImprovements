@@ -85,7 +85,7 @@ public class HudConfig {
         @Config.Order(2)
         public String MemoryItem;
 
-        @Config.DefaultString("minecraft:redstone")
+        @Config.DefaultString("minecraft:repeater")
         @Config.Order(3)
         public String ServerMemoryItem;
 
