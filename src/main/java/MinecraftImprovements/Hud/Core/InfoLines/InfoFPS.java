@@ -19,4 +19,9 @@ public class InfoFPS extends InfoLine {
     public String getItemName() {
         return HudConfig.hudItems.fpsItem;
     }
+
+    @Override
+    public boolean canRender() {
+        return HudConfig.hudEnabled.fpsEnable;
+    }
 }

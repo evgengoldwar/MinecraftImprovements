@@ -12,7 +12,7 @@ import io.netty.buffer.Unpooled;
 
 public class OSLHandshakePayload {
 
-    public static final String CHANNEL = MinecraftImprovements.MODID + "HUD";
+    public static final String CHANNEL = MinecraftImprovements.NETWORK_MODID + "HUD";
 
     public static C17PacketCustomPayload getHandshake() {
         PacketBuffer buffer = new PacketBuffer(Unpooled.buffer());
@@ -27,6 +27,7 @@ public class OSLHandshakePayload {
                 buffer.writeStringToBuffer(channel);
             } catch (IOException ignored) {}
         }
+
         return new C17PacketCustomPayload("OSL|Handshake", buffer);
     }
 }

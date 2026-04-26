@@ -10,6 +10,7 @@ public class HudConfig {
 
     public static final HudOrder hudOrder = new HudOrder();
     public static final HudItems hudItems = new HudItems();
+    public static final HudEnabled hudEnabled = new HudEnabled();
 
     @Config.Entry(HudEntry.HudOrderCategory.class)
     public static class HudOrder {
@@ -20,24 +21,29 @@ public class HudConfig {
         public int fpsOrder;
 
         @Config.Comment("Memory Line order")
-        @Config.DefaultInt(2)
+        @Config.DefaultInt(4)
         @Config.RangeInt(min = 1, max = 100)
         public int memoryOrder;
 
         @Config.Comment("Ping Line order")
-        @Config.DefaultInt(3)
+        @Config.DefaultInt(2)
         @Config.RangeInt(min = 1, max = 100)
         public int pingOrder;
 
         @Config.Comment("Position Line order")
-        @Config.DefaultInt(4)
+        @Config.DefaultInt(5)
         @Config.RangeInt(min = 1, max = 100)
         public int positionOrder;
 
         @Config.Comment("TPS Line order")
-        @Config.DefaultInt(5)
+        @Config.DefaultInt(3)
         @Config.RangeInt(min = 1, max = 100)
         public int tpsOrder;
+
+        @Config.Comment("LP Line order")
+        @Config.DefaultInt(6)
+        @Config.RangeInt(min = 1, max = 100)
+        public int lpOrder;
 
     }
 
@@ -65,4 +71,29 @@ public class HudConfig {
         public String tpsItem;
 
     }
+
+    @Config.Entry(HudEntry.HudEnabledCategory.class)
+    public static class HudEnabled {
+
+        @Config.Comment("FPS Line enable")
+        @Config.DefaultBoolean(true)
+        public boolean fpsEnable;
+
+        @Config.Comment("Memory Line enable")
+        @Config.DefaultBoolean(true)
+        public boolean memoryEnable;
+
+        @Config.Comment("Ping Line enable")
+        @Config.DefaultBoolean(true)
+        public boolean pingEnable;
+
+        @Config.Comment("Position Line enable")
+        @Config.DefaultBoolean(true)
+        public boolean positionEnable;
+
+        @Config.Comment("TPS Line enable")
+        @Config.DefaultBoolean(true)
+        public boolean tpsEnable;
+    }
+
 }

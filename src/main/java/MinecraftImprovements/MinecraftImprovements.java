@@ -18,6 +18,7 @@ import cpw.mods.fml.common.event.FMLServerStartingEvent;
 public class MinecraftImprovements {
 
     public static final String MODID = "MinecraftImprovements";
+    public static final String NETWORK_MODID = "MI";
     public static final String MODNAME = "Minecraft Improvements";
     public static final Logger LOG = LogManager.getLogger(MODID);
 

@@ -7,14 +7,17 @@ import net.minecraftforge.common.MinecraftForge;
 
 import MinecraftImprovements.Configs.HUD.HudConfig;
 import MinecraftImprovements.Hud.Core.InfoLine;
+import MinecraftImprovements.Hud.Core.InfoLines.InfoBloodMagic;
 import MinecraftImprovements.Hud.Core.InfoLines.InfoFPS;
 import MinecraftImprovements.Hud.Core.InfoLines.InfoMemory;
 import MinecraftImprovements.Hud.Core.InfoLines.InfoPing;
 import MinecraftImprovements.Hud.Core.InfoLines.InfoPosition;
 import MinecraftImprovements.Hud.Core.InfoLines.InfoTPS;
+import MinecraftImprovements.Hud.Event.BloodMagicEvent;
 import MinecraftImprovements.Hud.Event.JoinWorldEvent;
 import MinecraftImprovements.Hud.Event.TickListener;
 import cpw.mods.fml.common.FMLCommonHandler;
+import cpw.mods.fml.common.Loader;
 
 public class Hud {
 
@@ -25,6 +28,10 @@ public class Hud {
             .bus()
             .register(new TickListener());
         MinecraftForge.EVENT_BUS.register(new JoinWorldEvent());
+
+        if (Loader.isModLoaded(HudUtils.BLOOD_MAGIC_ID)) {
+            MinecraftForge.EVENT_BUS.register(new BloodMagicEvent());
+        }
     }
 
     public static void initLines() {
@@ -37,8 +44,8 @@ public class Hud {
         lines.add(new InfoPosition(HudConfig.hudOrder.positionOrder));
         lines.add(new InfoFPS(HudConfig.hudOrder.fpsOrder));
 
-        for (InfoLine line : lines) {
-            System.out.println(line.getLineString());
+        if (Loader.isModLoaded(HudUtils.BLOOD_MAGIC_ID)) {
+            lines.add(new InfoBloodMagic(HudConfig.hudOrder.lpOrder));
         }
     }
 }

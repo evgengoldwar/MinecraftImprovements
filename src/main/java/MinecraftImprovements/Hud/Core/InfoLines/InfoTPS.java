@@ -12,7 +12,7 @@ public class InfoTPS extends InfoLine {
 
     @Override
     public boolean canRender() {
-        return DataStorage.tps != -1;
+        return DataStorage.tps != -1 && HudConfig.hudEnabled.tpsEnable;
     }
 
     @Override

@@ -14,16 +14,19 @@ public class JoinWorldEvent {
 
     @SubscribeEvent
     public void onEntityJoinWorld(EntityJoinWorldEvent event) {
-        if (event.entity instanceof EntityPlayer) {
+        if (event.entity instanceof EntityPlayer player) {
             DataStorage.resetTPS();
+            BloodMagicEvent.playerMaxLP.remove(player.getDisplayName());
         }
     }
 
     @SideOnly(Side.CLIENT)
     @SubscribeEvent
     public void onEntityJoinWorldClient(EntityJoinWorldEvent event) {
-        if (event.entity instanceof EntityClientPlayerMP) {
+        if (event.entity instanceof EntityClientPlayerMP playerMP) {
             Hud.initLines();
+            DataStorage.resetTPS();
+            BloodMagicEvent.playerMaxLP.remove(playerMP.getDisplayName());
         }
     }
 }

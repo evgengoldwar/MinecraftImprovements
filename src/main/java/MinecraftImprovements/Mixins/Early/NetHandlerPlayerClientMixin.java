@@ -26,16 +26,12 @@ public class NetHandlerPlayerClientMixin {
     @Final
     private NetworkManager netManager;
 
-    /* Register OSL networking channels */
     @Inject(method = "handleJoinGame", at = @At("TAIL"))
     private void sendHandshake(CallbackInfo ci) {
         C17PacketCustomPayload packet = OSLHandshakePayload.getHandshake();
-        if (packet != null) {
-            this.netManager.scheduleOutboundPacket(packet);
-        }
+        this.netManager.scheduleOutboundPacket(packet);
     }
 
-    /* Grab own player ping on remote servers */
     @Inject(method = "handlePlayerListItem", at = @At("HEAD"))
     private void getPing(S38PacketPlayerListItem packet, CallbackInfo ci) {
         if (packet == null || packet.func_149122_c() == null) {
@@ -47,16 +43,15 @@ public class NetHandlerPlayerClientMixin {
         }
     }
 
-    /* Handle custom packets */
     @Inject(method = "handleCustomPayload", at = @At("HEAD"))
     private void handleTPSPacket(S3FPacketCustomPayload packet, CallbackInfo ci) {
         if (packet == null || packet.func_149169_c() == null) {
             return;
         }
 
-        if (packet.func_149169_c()
-            .equals(OSLHandshakePayload.CHANNEL + "|TPS")) {
+        String channel = packet.func_149169_c();
 
+        if (channel.equals(OSLHandshakePayload.CHANNEL + "|TPS")) {
             ByteBuf bytebuf = Unpooled.wrappedBuffer(packet.func_149168_d());
             try {
                 double tps = bytebuf.readDouble();
@@ -66,14 +61,15 @@ public class NetHandlerPlayerClientMixin {
             } catch (Exception ignored) {}
         }
 
-        if (packet.func_149169_c()
-            .equals(OSLHandshakePayload.CHANNEL + "|Mem")) {
-
+        if (channel.equals(OSLHandshakePayload.CHANNEL + "|Mem")) {
             ByteBuf bytebuf = Unpooled.wrappedBuffer(packet.func_149168_d());
             try {
-                DataStorage.serverMemUsed = bytebuf.readInt();
-                DataStorage.serverMemAllocated = bytebuf.readInt();
-                DataStorage.serverMemMax = bytebuf.readInt();
+                int used = bytebuf.readInt();
+                int max = bytebuf.readInt();
+                int allocated = bytebuf.readInt();
+                DataStorage.serverMemUsed = used;
+                DataStorage.serverMemMax = max;
+                DataStorage.serverMemAllocated = allocated;
             } catch (Exception ignored) {}
         }
     }

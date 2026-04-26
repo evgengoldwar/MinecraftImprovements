@@ -12,7 +12,7 @@ public class InfoPing extends InfoLine {
 
     @Override
     public boolean canRender() {
-        return !mc.isSingleplayer();
+        return !mc.isSingleplayer() && HudConfig.hudEnabled.pingEnable;
     }
 
     @Override

@@ -18,6 +18,7 @@ public enum Mixins implements IMixins {
             "NetHandlerPlayerClientMixin",
             "GuiIngameMixin",
             "MinecraftAccessor")
+        .addServerMixins("MinecraftServerMixin", "NetHandlerPlayServerMixin", "NetHandlerPlayServerDisconnectMixin")
         .setPhase(Phase.EARLY));
 
     private final MixinBuilder builder;
