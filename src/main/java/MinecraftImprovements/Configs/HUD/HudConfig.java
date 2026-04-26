@@ -37,16 +37,19 @@ public class HudConfig {
 
         @Config.DefaultInt(6)
         @Config.RangeInt(min = 1, max = 100)
-        public int positionOrder;
+        public int PositionOrder;
 
         @Config.DefaultInt(3)
         @Config.RangeInt(min = 1, max = 100)
-        public int tpsOrder;
+        public int TpsOrder;
 
         @Config.DefaultInt(7)
         @Config.RangeInt(min = 1, max = 100)
-        public int lpOrder;
+        public int LpOrder;
 
+        @Config.DefaultInt(8)
+        @Config.RangeInt(min = 1, max = 100)
+        public int WarpOrder;
     }
 
     @Config.LangKey("minecraftimprovements.config.hud.hud_icons.name")
@@ -73,6 +76,9 @@ public class HudConfig {
         @Config.DefaultString("AWWayofTime:weakBloodOrb")
         public String LpItem;
 
+        @Config.DefaultString("Thaumcraft:ItemEldritchObject")
+        public String WarpItem;
+
     }
 
     @Config.LangKey("minecraftimprovements.config.hud.hud_toggles.name")
@@ -98,6 +104,9 @@ public class HudConfig {
 
         @Config.DefaultBoolean(true)
         public boolean LpEnable;
+
+        @Config.DefaultBoolean(true)
+        public boolean WarpEnable;
     }
 
 }

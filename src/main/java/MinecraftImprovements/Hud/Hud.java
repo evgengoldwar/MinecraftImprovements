@@ -3,6 +3,7 @@ package MinecraftImprovements.Hud;
 import java.util.ArrayList;
 import java.util.List;
 
+import MinecraftImprovements.Hud.Core.InfoLines.InfoThaumcraft;
 import net.minecraftforge.common.MinecraftForge;
 
 import MinecraftImprovements.Configs.HUD.HudConfig;
@@ -40,12 +41,16 @@ public class Hud {
         lines.add(new InfoMemory(HudConfig.hudOrder.MemoryOrder, false));
         lines.add(new InfoMemory(HudConfig.hudOrder.ServerMemoryOrder, true));
         lines.add(new InfoPing(HudConfig.hudOrder.PingOrder));
-        lines.add(new InfoTPS(HudConfig.hudOrder.tpsOrder));
-        lines.add(new InfoPosition(HudConfig.hudOrder.positionOrder));
+        lines.add(new InfoTPS(HudConfig.hudOrder.TpsOrder));
+        lines.add(new InfoPosition(HudConfig.hudOrder.PositionOrder));
         lines.add(new InfoFPS(HudConfig.hudOrder.FpsOrder));
 
         if (Loader.isModLoaded(HudUtils.BLOOD_MAGIC_ID)) {
-            lines.add(new InfoBloodMagic(HudConfig.hudOrder.lpOrder));
+            lines.add(new InfoBloodMagic(HudConfig.hudOrder.LpOrder));
+        }
+
+        if (Loader.isModLoaded(HudUtils.THAUMCRAFT_ID)) {
+            lines.add(new InfoThaumcraft(HudConfig.hudOrder.WarpOrder));
         }
     }
 }
