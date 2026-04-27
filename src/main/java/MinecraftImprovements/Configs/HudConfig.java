@@ -82,6 +82,11 @@ public class HudConfig {
         @Config.RangeInt(min = 1, max = 100)
         @Config.Order(10)
         public int BiomeOrder;
+
+        @Config.DefaultInt(11)
+        @Config.RangeInt(min = 1, max = 100)
+        @Config.Order(11)
+        public int DirectionOrder;
     }
 
     @Config.LangKey("minecraftimprovements.config.hud.hud_icons.name")
@@ -126,6 +131,10 @@ public class HudConfig {
         @Config.DefaultString("minecraft:sapling")
         @Config.Order(10)
         public String BiomeItem;
+
+        @Config.DefaultString("minecraft:compass")
+        @Config.Order(10)
+        public String DirectionItem;
     }
 
     @Config.LangKey("minecraftimprovements.config.hud.hud_toggles.name")
@@ -170,6 +179,10 @@ public class HudConfig {
         @Config.DefaultBoolean(true)
         @Config.Order(10)
         public boolean BiomeEnable;
+
+        @Config.DefaultBoolean(true)
+        @Config.Order(11)
+        public boolean DirectionEnable;
     }
 
 }

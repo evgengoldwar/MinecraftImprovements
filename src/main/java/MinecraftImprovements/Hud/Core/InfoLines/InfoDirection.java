@@ -1,0 +1,26 @@
+package MinecraftImprovements.Hud.Core.InfoLines;
+
+import MinecraftImprovements.Hud.Core.InfoLine;
+import net.minecraft.util.MathHelper;
+
+public class InfoDirection extends InfoLine {
+
+    public InfoDirection(int order) {
+        super(order);
+    }
+
+    @Override
+    public String getLineString() {
+        return tr("info_direction", ROUGHDIRECTION[MathHelper.floor_double(playerMP.rotationYaw * 4.0 / 360.0 + 0.5) & 3]);
+    }
+
+    @Override
+    public boolean canRender() {
+        return hudEnabled.DirectionEnable;
+    }
+
+    @Override
+    public String getItemName() {
+        return hudItems.DirectionItem;
+    }
+}

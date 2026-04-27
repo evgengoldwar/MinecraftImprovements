@@ -1,5 +1,6 @@
 package MinecraftImprovements.Hud.Core;
 
+import MinecraftImprovements.Configs.HudConfig;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.entity.EntityClientPlayerMP;
 import net.minecraft.item.Item;
@@ -15,11 +16,14 @@ public abstract class InfoLine {
     private final int order;
     private ItemStack cachedStack = null;
     private String cachedItemName = null;
-    public final Minecraft mc = Minecraft.getMinecraft();
-    public final EntityClientPlayerMP playerMP = mc.thePlayer;
-    public final World world = playerMP.worldObj;
-    public final WorldProvider worldProvider = world.provider;
-    public final BiomeGenBase biomeGenBase = world.getBiomeGenForCoords(getX(), getZ());
+    protected final Minecraft mc = Minecraft.getMinecraft();
+    protected final EntityClientPlayerMP playerMP = mc.thePlayer;
+    protected final World world = playerMP.worldObj;
+    protected final WorldProvider worldProvider = world.provider;
+    protected final BiomeGenBase biomeGenBase = world.getBiomeGenForCoords(getX(), getZ());
+    protected static final String[] ROUGHDIRECTION = { "South", "West", "North", "East" };
+    protected final HudConfig.HudEnabled hudEnabled = HudConfig.hudEnabled;
+    protected final HudConfig.HudItems hudItems = HudConfig.hudItems;
 
     public InfoLine(int order) {
         this.order = order;

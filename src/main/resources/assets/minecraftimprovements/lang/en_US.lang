@@ -14,4 +14,5 @@ minecraftimprovements.hud.info_line.info_tps=TPS: %s%s §rMSPT: %s%s
 minecraftimprovements.hud.info_line.info_warp=Warp: %s (P: %s | S: %s | T: %s)
 minecraftimprovements.hud.info_line.info_dimension=Dim: §6%s §a%s
 minecraftimprovements.hud.info_line.info_biome=Biome: §6%s §rHumidity: §a%s%%
+minecraftimprovements.hud.info_line.info_direction=Facing: §6%s
 
