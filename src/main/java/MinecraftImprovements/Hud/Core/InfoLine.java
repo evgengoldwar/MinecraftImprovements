@@ -22,8 +22,6 @@ public abstract class InfoLine {
     protected final WorldProvider worldProvider = world.provider;
     protected final BiomeGenBase biomeGenBase = world.getBiomeGenForCoords(getX(), getZ());
     protected static final String[] ROUGHDIRECTION = { "South", "West", "North", "East" };
-    protected final HudConfig.HudEnabled hudEnabled = HudConfig.hudEnabled;
-    protected final HudConfig.HudItems hudItems = HudConfig.hudItems;
 
     public InfoLine(int order) {
         this.order = order;

@@ -1,5 +1,6 @@
 package MinecraftImprovements.Hud.Core.InfoLines;
 
+import MinecraftImprovements.Configs.HudConfig;
 import MinecraftImprovements.Hud.Core.InfoLine;
 import net.minecraft.util.MathHelper;
 
@@ -16,11 +17,11 @@ public class InfoDirection extends InfoLine {
 
     @Override
     public boolean canRender() {
-        return hudEnabled.DirectionEnable;
+        return HudConfig.hudEnabled.DirectionEnable;
     }
 
     @Override
     public String getItemName() {
-        return hudItems.DirectionItem;
+        return HudConfig.hudItems.DirectionItem;
     }
 }
