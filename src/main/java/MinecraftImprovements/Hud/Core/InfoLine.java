@@ -8,6 +8,7 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldProvider;
+import net.minecraft.world.biome.BiomeGenBase;
 
 public abstract class InfoLine {
 
@@ -18,6 +19,7 @@ public abstract class InfoLine {
     public final EntityClientPlayerMP playerMP = mc.thePlayer;
     public final World world = playerMP.worldObj;
     public final WorldProvider worldProvider = world.provider;
+    public final BiomeGenBase biomeGenBase = world.getBiomeGenForCoords(getX(), getZ());
 
     public InfoLine(int order) {
         this.order = order;

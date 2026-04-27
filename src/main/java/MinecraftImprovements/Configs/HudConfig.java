@@ -77,6 +77,11 @@ public class HudConfig {
         @Config.RangeInt(min = 1, max = 100)
         @Config.Order(9)
         public int DimensionOrder;
+
+        @Config.DefaultInt(10)
+        @Config.RangeInt(min = 1, max = 100)
+        @Config.Order(10)
+        public int BiomeOrder;
     }
 
     @Config.LangKey("minecraftimprovements.config.hud.hud_icons.name")
@@ -114,9 +119,13 @@ public class HudConfig {
         @Config.Order(8)
         public String WarpItem;
 
-        @Config.DefaultString("minecraft:portal")
-        @Config.Order(8)
+        @Config.DefaultString("minecraft:ender_eye")
+        @Config.Order(9)
         public String DimensionItem;
+
+        @Config.DefaultString("minecraft:sapling")
+        @Config.Order(10)
+        public String BiomeItem;
     }
 
     @Config.LangKey("minecraftimprovements.config.hud.hud_toggles.name")
@@ -157,6 +166,10 @@ public class HudConfig {
         @Config.DefaultBoolean(true)
         @Config.Order(9)
         public boolean DimensionEnable;
+
+        @Config.DefaultBoolean(true)
+        @Config.Order(10)
+        public boolean BiomeEnable;
     }
 
 }
