@@ -1,8 +1,9 @@
 package MinecraftImprovements.Hud.Core.InfoLines;
 
+import net.minecraft.util.MathHelper;
+
 import MinecraftImprovements.Configs.HudConfig;
 import MinecraftImprovements.Hud.Core.InfoLine;
-import net.minecraft.util.MathHelper;
 
 public class InfoDirection extends InfoLine {
 
@@ -12,7 +13,9 @@ public class InfoDirection extends InfoLine {
 
     @Override
     public String getLineString() {
-        return tr("info_direction", ROUGHDIRECTION[MathHelper.floor_double(playerMP.rotationYaw * 4.0 / 360.0 + 0.5) & 3]);
+        return tr(
+            "info_direction",
+            ROUGHDIRECTION[MathHelper.floor_double(playerMP.rotationYaw * 4.0 / 360.0 + 0.5) & 3]);
     }
 
     @Override

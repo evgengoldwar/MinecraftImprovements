@@ -3,14 +3,14 @@ package MinecraftImprovements.Hud;
 import java.util.ArrayList;
 import java.util.List;
 
-import MinecraftImprovements.Hud.Core.InfoLines.InfoBiome;
-import MinecraftImprovements.Hud.Core.InfoLines.InfoDimension;
-import MinecraftImprovements.Hud.Core.InfoLines.InfoDirection;
 import net.minecraftforge.common.MinecraftForge;
 
 import MinecraftImprovements.Configs.HudConfig;
 import MinecraftImprovements.Hud.Core.InfoLine;
+import MinecraftImprovements.Hud.Core.InfoLines.InfoBiome;
 import MinecraftImprovements.Hud.Core.InfoLines.InfoBloodMagic;
+import MinecraftImprovements.Hud.Core.InfoLines.InfoDimension;
+import MinecraftImprovements.Hud.Core.InfoLines.InfoDirection;
 import MinecraftImprovements.Hud.Core.InfoLines.InfoFPS;
 import MinecraftImprovements.Hud.Core.InfoLines.InfoMemory;
 import MinecraftImprovements.Hud.Core.InfoLines.InfoPing;

@@ -1,6 +1,5 @@
 package MinecraftImprovements.Hud.Core;
 
-import MinecraftImprovements.Configs.HudConfig;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.entity.EntityClientPlayerMP;
 import net.minecraft.item.Item;
