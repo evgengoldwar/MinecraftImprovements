@@ -87,6 +87,11 @@ public class HudConfig {
         @Config.RangeInt(min = 1, max = 100)
         @Config.Order(11)
         public int DirectionOrder;
+
+        @Config.DefaultInt(12)
+        @Config.RangeInt(min = 1, max = 100)
+        @Config.Order(12)
+        public int OreChunkOrder;
     }
 
     @Config.LangKey("minecraftimprovements.config.hud.hud_icons.name")
@@ -133,8 +138,12 @@ public class HudConfig {
         public String BiomeItem;
 
         @Config.DefaultString("minecraft:compass")
-        @Config.Order(10)
+        @Config.Order(11)
         public String DirectionItem;
+
+        @Config.DefaultString("minecraft:iron_ore")
+        @Config.Order(12)
+        public String OreChunkItem;
     }
 
     @Config.LangKey("minecraftimprovements.config.hud.hud_toggles.name")
@@ -183,6 +192,10 @@ public class HudConfig {
         @Config.DefaultBoolean(true)
         @Config.Order(11)
         public boolean DirectionEnable;
+
+        @Config.DefaultBoolean(true)
+        @Config.Order(11)
+        public boolean OreChunkEnable;
     }
 
 }

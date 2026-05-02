@@ -12,6 +12,7 @@ public class HudUtils {
 
     public static final String BLOOD_MAGIC_ID = "AWWayofTime";
     public static final String THAUMCRAFT_ID = "Thaumcraft";
+    public static final String GREG_TECH_ID = "gregtech";
 
     private static NBTTagCompound getPersistentDataTag(EntityPlayer player) {
         NBTTagCompound forgeData = player.getEntityData()

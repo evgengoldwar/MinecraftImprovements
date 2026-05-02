@@ -13,6 +13,7 @@ import MinecraftImprovements.Hud.Core.InfoLines.InfoDimension;
 import MinecraftImprovements.Hud.Core.InfoLines.InfoDirection;
 import MinecraftImprovements.Hud.Core.InfoLines.InfoFPS;
 import MinecraftImprovements.Hud.Core.InfoLines.InfoMemory;
+import MinecraftImprovements.Hud.Core.InfoLines.InfoOreChunk;
 import MinecraftImprovements.Hud.Core.InfoLines.InfoPing;
 import MinecraftImprovements.Hud.Core.InfoLines.InfoPosition;
 import MinecraftImprovements.Hud.Core.InfoLines.InfoTPS;
@@ -57,6 +58,10 @@ public class Hud {
 
         if (Loader.isModLoaded(HudUtils.THAUMCRAFT_ID)) {
             lines.add(new InfoThaumcraft(HudConfig.hudOrder.WarpOrder));
+        }
+
+        if (Loader.isModLoaded(HudUtils.GREG_TECH_ID)) {
+            lines.add(new InfoOreChunk(HudConfig.hudOrder.OreChunkOrder));
         }
     }
 }
