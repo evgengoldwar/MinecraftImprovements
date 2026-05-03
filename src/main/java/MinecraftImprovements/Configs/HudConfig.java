@@ -28,6 +28,10 @@ public class HudConfig {
         @Config.RangeFloat(min = 0.5F, max = 2.0F)
         @Config.Order(3)
         public float HudScale;
+
+        @Config.DefaultBoolean(false)
+        @Config.Order(4)
+        public boolean HudDisable;
     }
 
     @Config.LangKey("minecraftimprovements.config.hud.hud_order.name")
@@ -97,12 +101,17 @@ public class HudConfig {
         @Config.RangeInt(min = 1, max = 100)
         @Config.Order(13)
         public int SlimeChunkOrder;
+
+        @Config.DefaultInt(14)
+        @Config.RangeInt(min = 1, max = 100)
+        @Config.Order(14)
+        public int WorldTimeOrder;
     }
 
     @Config.LangKey("minecraftimprovements.config.hud.hud_icons.name")
     public static class HudItems {
 
-        @Config.DefaultString("minecraft:clock")
+        @Config.DefaultString("minecraft:skull/4")
         @Config.Order(1)
         public String FpsItem;
 
@@ -153,6 +162,10 @@ public class HudConfig {
         @Config.DefaultString("minecraft:slime_ball")
         @Config.Order(13)
         public String SlimeChunkItem;
+
+        @Config.DefaultString("minecraft:clock")
+        @Config.Order(14)
+        public String WorldTimeItem;
     }
 
     @Config.LangKey("minecraftimprovements.config.hud.hud_toggles.name")
@@ -209,6 +222,10 @@ public class HudConfig {
         @Config.DefaultBoolean(true)
         @Config.Order(13)
         public boolean SlimeChunkEnable;
+
+        @Config.DefaultBoolean(true)
+        @Config.Order(14)
+        public boolean WorldTimeEnable;
     }
 
 }

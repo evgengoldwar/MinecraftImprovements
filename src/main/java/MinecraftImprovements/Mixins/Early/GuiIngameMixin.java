@@ -45,6 +45,8 @@ public class GuiIngameMixin extends GuiIngame {
 
         if (mc.gameSettings.showDebugInfo) return;
 
+        if (HudConfig.hudGeneral.HudDisable) return;
+
         int hudY = HudConfig.hudGeneral.HudY;
 
         List<InfoLine> orderedLines = Hud.lines;
