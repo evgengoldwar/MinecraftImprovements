@@ -16,6 +16,7 @@ import MinecraftImprovements.Hud.Core.InfoLines.InfoMemory;
 import MinecraftImprovements.Hud.Core.InfoLines.InfoOreChunk;
 import MinecraftImprovements.Hud.Core.InfoLines.InfoPing;
 import MinecraftImprovements.Hud.Core.InfoLines.InfoPosition;
+import MinecraftImprovements.Hud.Core.InfoLines.InfoSlimeChunk;
 import MinecraftImprovements.Hud.Core.InfoLines.InfoTPS;
 import MinecraftImprovements.Hud.Core.InfoLines.InfoThaumcraft;
 import MinecraftImprovements.Hud.Event.BloodMagicEvent;
@@ -51,6 +52,7 @@ public class Hud {
         lines.add(new InfoDimension(HudConfig.hudOrder.DimensionOrder));
         lines.add(new InfoBiome(HudConfig.hudOrder.BiomeOrder));
         lines.add(new InfoDirection(HudConfig.hudOrder.DirectionOrder));
+        lines.add(new InfoSlimeChunk(HudConfig.hudOrder.SlimeChunkOrder));
 
         if (Loader.isModLoaded(HudUtils.BLOOD_MAGIC_ID)) {
             lines.add(new InfoBloodMagic(HudConfig.hudOrder.LpOrder));

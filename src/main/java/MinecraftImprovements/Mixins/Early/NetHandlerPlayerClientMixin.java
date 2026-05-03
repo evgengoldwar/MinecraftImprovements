@@ -44,7 +44,7 @@ public class NetHandlerPlayerClientMixin {
     }
 
     @Inject(method = "handleCustomPayload", at = @At("HEAD"))
-    private void handleTPSPacket(S3FPacketCustomPayload packet, CallbackInfo ci) {
+    private void handlePacket(S3FPacketCustomPayload packet, CallbackInfo ci) {
         if (packet == null || packet.func_149169_c() == null) {
             return;
         }
@@ -70,6 +70,13 @@ public class NetHandlerPlayerClientMixin {
                 DataStorage.serverMemUsed = used;
                 DataStorage.serverMemMax = max;
                 DataStorage.serverMemAllocated = allocated;
+            } catch (Exception ignored) {}
+        }
+
+        if (channel.equals(OSLHandshakePayload.CHANNEL + "|Seed")) {
+            ByteBuf byteBuf = Unpooled.wrappedBuffer(packet.func_149168_d());
+            try {
+                DataStorage.worldSeed = byteBuf.readLong();
             } catch (Exception ignored) {}
         }
     }

@@ -18,6 +18,8 @@ public class DataStorage {
     public static int serverMemUsed = -1;
     public static int serverMemAllocated = -1;
     public static int serverMemMax = -1;
+    public static long worldSeed = -1;
+    public static final Set<UUID> seedSubscribers = new HashSet<>();
     public static final Set<UUID> tpsSubscribers = new HashSet<>();
     public static final Set<UUID> memSubscribers = new HashSet<>();
 
@@ -55,9 +57,14 @@ public class DataStorage {
         memSubscribers.add(player.getUniqueID());
     }
 
+    public static void subscribeSeed(EntityPlayerMP player) {
+        seedSubscribers.add(player.getUniqueID());
+    }
+
     public static void unsubscribeAll(EntityPlayerMP player) {
         tpsSubscribers.remove(player.getUniqueID());
         memSubscribers.remove(player.getUniqueID());
+        seedSubscribers.remove(player.getUniqueID());
     }
 
     public static void reset() {
@@ -66,5 +73,6 @@ public class DataStorage {
         serverMemAllocated = -1;
         serverMemMax = -1;
         serverMemUsed = -1;
+        worldSeed = -1;
     }
 }

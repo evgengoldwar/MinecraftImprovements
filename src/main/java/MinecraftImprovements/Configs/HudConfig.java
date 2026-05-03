@@ -92,6 +92,11 @@ public class HudConfig {
         @Config.RangeInt(min = 1, max = 100)
         @Config.Order(12)
         public int OreChunkOrder;
+
+        @Config.DefaultInt(13)
+        @Config.RangeInt(min = 1, max = 100)
+        @Config.Order(13)
+        public int SlimeChunkOrder;
     }
 
     @Config.LangKey("minecraftimprovements.config.hud.hud_icons.name")
@@ -144,6 +149,10 @@ public class HudConfig {
         @Config.DefaultString("minecraft:iron_ore")
         @Config.Order(12)
         public String OreChunkItem;
+
+        @Config.DefaultString("minecraft:slime_ball")
+        @Config.Order(13)
+        public String SlimeChunkItem;
     }
 
     @Config.LangKey("minecraftimprovements.config.hud.hud_toggles.name")
@@ -194,8 +203,12 @@ public class HudConfig {
         public boolean DirectionEnable;
 
         @Config.DefaultBoolean(true)
-        @Config.Order(11)
+        @Config.Order(12)
         public boolean OreChunkEnable;
+
+        @Config.DefaultBoolean(true)
+        @Config.Order(13)
+        public boolean SlimeChunkEnable;
     }
 
 }

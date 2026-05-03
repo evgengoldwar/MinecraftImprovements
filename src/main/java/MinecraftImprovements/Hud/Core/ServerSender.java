@@ -5,6 +5,7 @@ import net.minecraft.network.PacketBuffer;
 import net.minecraft.network.play.server.S3FPacketCustomPayload;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.MathHelper;
+import net.minecraft.world.World;
 
 import MinecraftImprovements.MinecraftImprovements;
 import io.netty.buffer.Unpooled;
@@ -12,14 +13,19 @@ import io.netty.buffer.Unpooled;
 public class ServerSender {
 
     private static int tickCounter = 0;
+    private static boolean seedSent = false;
 
     public static void onServerTick(MinecraftServer server) {
         tickCounter++;
 
-        if (tickCounter % 20 != 0) {
-            return;
+        if (tickCounter % 20 == 0) {
+            sendTPSAndMem(server);
         }
 
+        sendSeed(server);
+    }
+
+    private static void sendTPSAndMem(MinecraftServer server) {
         if (DataStorage.tpsSubscribers.isEmpty() && DataStorage.memSubscribers.isEmpty()) {
             return;
         }
@@ -44,6 +50,24 @@ public class ServerSender {
         }
     }
 
+    private static void sendSeed(MinecraftServer server) {
+        if (seedSent || DataStorage.seedSubscribers.isEmpty()) {
+            return;
+        }
+
+        World world = server.worldServers[0];
+        long seed = world.getSeed();
+        DataStorage.worldSeed = seed;
+
+        for (EntityPlayerMP player : server.getConfigurationManager().playerEntityList) {
+            if (DataStorage.seedSubscribers.contains(player.getUniqueID())) {
+                sendSeedPacket(player, seed);
+            }
+        }
+
+        seedSent = true;
+    }
+
     private static void sendTPSPacket(EntityPlayerMP player, double tps, double mspt) {
         PacketBuffer buffer = new PacketBuffer(Unpooled.buffer());
         buffer.writeDouble(round(tps));
@@ -64,6 +88,17 @@ public class ServerSender {
 
         S3FPacketCustomPayload packet = new S3FPacketCustomPayload(
             MinecraftImprovements.NETWORK_MODID + "HUD|Mem",
+            buffer);
+
+        player.playerNetServerHandler.sendPacket(packet);
+    }
+
+    private static void sendSeedPacket(EntityPlayerMP player, long seed) {
+        PacketBuffer buffer = new PacketBuffer(Unpooled.buffer());
+        buffer.writeLong(seed);
+
+        S3FPacketCustomPayload packet = new S3FPacketCustomPayload(
+            MinecraftImprovements.NETWORK_MODID + "HUD|Seed",
             buffer);
 
         player.playerNetServerHandler.sendPacket(packet);
