@@ -9,7 +9,7 @@ import net.minecraft.util.MathHelper;
 import MinecraftImprovements.MinecraftImprovements;
 import io.netty.buffer.Unpooled;
 
-public class TPSSender {
+public class ServerSender {
 
     private static int tickCounter = 0;
 
