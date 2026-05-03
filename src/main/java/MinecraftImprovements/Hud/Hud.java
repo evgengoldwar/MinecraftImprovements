@@ -3,7 +3,6 @@ package MinecraftImprovements.Hud;
 import java.util.ArrayList;
 import java.util.List;
 
-import MinecraftImprovements.Hud.Core.InfoLines.InfoWorldTime;
 import net.minecraftforge.common.MinecraftForge;
 
 import MinecraftImprovements.Configs.HudConfig;
@@ -20,6 +19,7 @@ import MinecraftImprovements.Hud.Core.InfoLines.InfoPosition;
 import MinecraftImprovements.Hud.Core.InfoLines.InfoSlimeChunk;
 import MinecraftImprovements.Hud.Core.InfoLines.InfoTPS;
 import MinecraftImprovements.Hud.Core.InfoLines.InfoThaumcraft;
+import MinecraftImprovements.Hud.Core.InfoLines.InfoWorldTime;
 import MinecraftImprovements.Hud.Event.BloodMagicEvent;
 import MinecraftImprovements.Hud.Event.JoinWorldEvent;
 import MinecraftImprovements.Hud.Event.TickListener;
