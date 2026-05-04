@@ -1,8 +1,0 @@
-{
-  "required": true,
-  "minVersion": "0.8.5-GTNH",
-  "package": "MinecraftImprovements.Mixins.Late",
-  "refmap": "mixins.MinecraftImprovements.refmap.json",
-  "target": "@env(DEFAULT)",
-  "compatibilityLevel": "JAVA_8"
-}
