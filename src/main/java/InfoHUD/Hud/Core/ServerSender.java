@@ -73,9 +73,7 @@ public class ServerSender {
         buffer.writeDouble(round(tps));
         buffer.writeDouble(round(mspt));
 
-        S3FPacketCustomPayload packet = new S3FPacketCustomPayload(
-            InfoHUD.NETWORK_MODID + "HUD|TPS",
-            buffer);
+        S3FPacketCustomPayload packet = new S3FPacketCustomPayload(InfoHUD.NETWORK_MODID + "HUD|TPS", buffer);
 
         player.playerNetServerHandler.sendPacket(packet);
     }
@@ -86,9 +84,7 @@ public class ServerSender {
         buffer.writeInt((int) max);
         buffer.writeInt((int) allocated);
 
-        S3FPacketCustomPayload packet = new S3FPacketCustomPayload(
-            InfoHUD.NETWORK_MODID + "HUD|Mem",
-            buffer);
+        S3FPacketCustomPayload packet = new S3FPacketCustomPayload(InfoHUD.NETWORK_MODID + "HUD|Mem", buffer);
 
         player.playerNetServerHandler.sendPacket(packet);
     }
@@ -97,9 +93,7 @@ public class ServerSender {
         PacketBuffer buffer = new PacketBuffer(Unpooled.buffer());
         buffer.writeLong(seed);
 
-        S3FPacketCustomPayload packet = new S3FPacketCustomPayload(
-            InfoHUD.NETWORK_MODID + "HUD|Seed",
-            buffer);
+        S3FPacketCustomPayload packet = new S3FPacketCustomPayload(InfoHUD.NETWORK_MODID + "HUD|Seed", buffer);
 
         player.playerNetServerHandler.sendPacket(packet);
     }
