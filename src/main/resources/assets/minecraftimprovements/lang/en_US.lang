@@ -17,7 +17,13 @@ minecraftimprovements.hud.info_line.info_biome=Biome: §6%s §rHumidity: §a%s%%
 minecraftimprovements.hud.info_line.info_direction=Facing: §6%s
 minecraftimprovements.hud.info_line.info_orechunk=This is an §a§nore chunk§r
 minecraftimprovements.hud.info_line.info_slimechunk=This is a §a§nslime chunk§r
-minecraftimprovements.hud.info_line.info_worldtime.0=Seconds: §6%s §rTime: §6%s§r %s
-minecraftimprovements.hud.info_line.info_worldtime.1=Minutes: §6%s §rTime: §6%s§r %s
-minecraftimprovements.hud.info_line.info_worldtime.2=Hours: §6%s §rTime: §6%s§r %s
+minecraftimprovements.hud.info_line.info_worldtime.0=World time: §6%ss §rTime: §6%s§r %s
+minecraftimprovements.hud.info_line.info_worldtime.1=World time: §6%sm §rTime: §6%s§r %s
+minecraftimprovements.hud.info_line.info_worldtime.2=World time: §6%sh §rTime: §6%s§r %s
+minecraftimprovements.hud.info_line.info_playtime.0=Play time: §6%ss
+minecraftimprovements.hud.info_line.info_playtime.1=Play time: §6%sm
+minecraftimprovements.hud.info_line.info_playtime.2=Play time: §6%sh
+minecraftimprovements.hud.info_line.info_sessiontime.0=Session: §6%ss
+minecraftimprovements.hud.info_line.info_sessiontime.1=Session: §6%sm %ss
+minecraftimprovements.hud.info_line.info_sessiontime.2=Session: §6%sh %sm %ss
 

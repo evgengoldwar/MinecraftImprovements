@@ -4,7 +4,7 @@ import static InfoHUD.InfoHUD.MODID;
 
 import com.gtnewhorizon.gtnhlib.config.Config;
 
-@Config(modid = MODID, configSubDirectory = "Minecraft Improvements", filename = "GeneralConfig")
+@Config(modid = MODID, configSubDirectory = "InfoHUD", filename = "GeneralConfig")
 @Config.LangKey("minecraftimprovements.config.general.name")
 public class GeneralConfig {
 

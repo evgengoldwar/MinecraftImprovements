@@ -2,6 +2,7 @@ package InfoHUD.Hud.Event;
 
 import net.minecraft.client.entity.EntityClientPlayerMP;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.network.play.client.C16PacketClientStatus;
 import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 
 import InfoHUD.Hud.Core.DataStorage;
@@ -24,6 +25,7 @@ public class JoinWorldEvent {
     @SubscribeEvent
     public void onEntityJoinWorldClient(EntityJoinWorldEvent event) {
         if (event.entity instanceof EntityClientPlayerMP playerMP) {
+            playerMP.sendQueue.addToSendQueue(new C16PacketClientStatus(C16PacketClientStatus.EnumState.REQUEST_STATS));
             Hud.initLines();
             DataStorage.reset();
             BloodMagicEvent.playerMaxLP.remove(playerMP.getDisplayName());

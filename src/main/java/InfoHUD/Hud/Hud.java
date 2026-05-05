@@ -16,6 +16,7 @@ import InfoHUD.Hud.Core.InfoLines.InfoMemory;
 import InfoHUD.Hud.Core.InfoLines.InfoOreChunk;
 import InfoHUD.Hud.Core.InfoLines.InfoPing;
 import InfoHUD.Hud.Core.InfoLines.InfoPosition;
+import InfoHUD.Hud.Core.InfoLines.InfoSessionTime;
 import InfoHUD.Hud.Core.InfoLines.InfoSlimeChunk;
 import InfoHUD.Hud.Core.InfoLines.InfoTPS;
 import InfoHUD.Hud.Core.InfoLines.InfoThaumcraft;
@@ -54,7 +55,9 @@ public class Hud {
         lines.add(new InfoBiome(HudConfig.hudOrder.BiomeOrder));
         lines.add(new InfoDirection(HudConfig.hudOrder.DirectionOrder));
         lines.add(new InfoSlimeChunk(HudConfig.hudOrder.SlimeChunkOrder));
-        lines.add(new InfoWorldTime(HudConfig.hudOrder.WorldTimeOrder));
+        lines.add(new InfoWorldTime(HudConfig.hudOrder.PlayTimeOrder, false));
+        lines.add(new InfoWorldTime(HudConfig.hudOrder.WorldTimeOrder, true));
+        lines.add(new InfoSessionTime(HudConfig.hudOrder.SessionTimeOrder));
 
         if (Loader.isModLoaded(HudUtils.BLOOD_MAGIC_ID)) {
             lines.add(new InfoBloodMagic(HudConfig.hudOrder.LpOrder));

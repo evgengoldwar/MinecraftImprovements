@@ -4,7 +4,7 @@ import static InfoHUD.InfoHUD.MODID;
 
 import com.gtnewhorizon.gtnhlib.config.Config;
 
-@Config(modid = MODID, category = "hud", configSubDirectory = "Minecraft Improvements", filename = "HudConfig")
+@Config(modid = MODID, category = "hud", configSubDirectory = "InfoHUD", filename = "HudConfig")
 @Config.LangKey("minecraftimprovements.config.hud.name")
 public class HudConfig {
 
@@ -106,12 +106,23 @@ public class HudConfig {
         @Config.RangeInt(min = 1, max = 100)
         @Config.Order(14)
         public int WorldTimeOrder;
+
+        @Config.DefaultInt(15)
+        @Config.RangeInt(min = 1, max = 100)
+        @Config.Order(15)
+        public int PlayTimeOrder;
+
+        @Config.DefaultInt(16)
+        @Config.RangeInt(min = 1, max = 100)
+        @Config.Order(16)
+        public int SessionTimeOrder;
+
     }
 
     @Config.LangKey("minecraftimprovements.config.hud.hud_icons.name")
     public static class HudItems {
 
-        @Config.DefaultString("minecraft:skull/4")
+        @Config.DefaultString("minecraft:emerald")
         @Config.Order(1)
         public String FpsItem;
 
@@ -166,6 +177,14 @@ public class HudConfig {
         @Config.DefaultString("minecraft:clock")
         @Config.Order(14)
         public String WorldTimeItem;
+
+        @Config.DefaultString("minecraft:noteblock")
+        @Config.Order(15)
+        public String PlayTimeItem;
+
+        @Config.DefaultString("minecraft:golden_apple/1")
+        @Config.Order(16)
+        public String SessionTimeItem;
     }
 
     @Config.LangKey("minecraftimprovements.config.hud.hud_toggles.name")
@@ -226,6 +245,14 @@ public class HudConfig {
         @Config.DefaultBoolean(true)
         @Config.Order(14)
         public boolean WorldTimeEnable;
+
+        @Config.DefaultBoolean(true)
+        @Config.Order(15)
+        public boolean PlayTimeEnable;
+
+        @Config.DefaultBoolean(true)
+        @Config.Order(16)
+        public boolean SessionTimeEnable;
     }
 
 }
