@@ -2,7 +2,6 @@ package InfoHUD.LightOverlay;
 
 import static InfoHUD.Utils.Utils.tr;
 
-import InfoHUD.Configs.LightOverlayConfig;
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.FontRenderer;
@@ -12,6 +11,8 @@ import net.minecraft.world.EnumSkyBlock;
 import net.minecraft.world.World;
 
 import org.lwjgl.opengl.GL11;
+
+import InfoHUD.Configs.LightOverlayConfig;
 
 public class LightLevelOverlayRenderer {
 
