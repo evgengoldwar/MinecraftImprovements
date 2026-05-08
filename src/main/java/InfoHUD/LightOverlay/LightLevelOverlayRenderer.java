@@ -1,22 +1,31 @@
 package InfoHUD.LightOverlay;
 
+import static InfoHUD.Utils.Utils.tr;
+
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.util.ChatComponentText;
 import net.minecraft.world.EnumSkyBlock;
 import net.minecraft.world.World;
+
 import org.lwjgl.opengl.GL11;
 
 public class LightLevelOverlayRenderer {
 
-    public static boolean enabled = false;
+    public static final int MODE_OFF = 0;
+    public static final int MODE_ALL = 1;
+    public static final int MODE_SPAWNABLE = 2;
+    public static final int MODE_SKY = 3;
+
+    public static int currentMode = MODE_OFF;
 
     private static final int RADIUS = 8;
     private static final int HEIGHT = 12;
 
     public static void render(float partialTicks) {
-        if (!enabled) return;
+        if (currentMode == MODE_OFF) return;
 
         Minecraft mc = Minecraft.getMinecraft();
         EntityPlayer player = mc.thePlayer;
@@ -50,13 +59,23 @@ public class LightLevelOverlayRenderer {
                     Block block = world.getBlock(x, y, z);
                     Block blockAbove = world.getBlock(x, y + 1, z);
 
-                    if (block == null || !block.getMaterial().isSolid()) continue;
-                    if (blockAbove == null || blockAbove.getMaterial().isSolid()) continue;
+                    if (block == null || !block.getMaterial()
+                        .isSolid()) continue;
+                    if (blockAbove == null || blockAbove.getMaterial()
+                        .isSolid()) continue;
 
-                    int blockLight = world.getSavedLightValue(EnumSkyBlock.Block, x, y + 1, z);
+                    int light;
 
-                    String text = String.valueOf(blockLight);
-                    int color = getColor(blockLight);
+                    if (currentMode == MODE_SKY) {
+                        light = world.getSavedLightValue(EnumSkyBlock.Sky, x, y + 1, z);
+                    } else {
+                        light = world.getSavedLightValue(EnumSkyBlock.Block, x, y + 1, z);
+                    }
+
+                    if (currentMode == MODE_SPAWNABLE && light > 7) continue;
+
+                    String text = String.valueOf(light);
+                    int color = getColor(light);
 
                     GL11.glPushMatrix();
                     GL11.glTranslated(x + 0.5, y + 1.005, z + 0.5);
@@ -77,6 +96,25 @@ public class LightLevelOverlayRenderer {
         GL11.glDisable(GL11.GL_BLEND);
         GL11.glEnable(GL11.GL_LIGHTING);
         GL11.glPopMatrix();
+    }
+
+    public static void toggleMode() {
+        currentMode++;
+        if (currentMode > 3) {
+            currentMode = MODE_OFF;
+        }
+
+        Minecraft mc = Minecraft.getMinecraft();
+        if (mc.thePlayer != null) {
+            String modeName = switch (currentMode) {
+                case MODE_OFF -> tr("infohud.light_overlay.mode_off");
+                case MODE_ALL -> tr("infohud.light_overlay.mode_all");
+                case MODE_SPAWNABLE -> tr("infohud.light_overlay.mode_spawnable");
+                case MODE_SKY -> tr("infohud.light_overlay.mode_sky");
+                default -> "";
+            };
+            mc.thePlayer.addChatMessage(new ChatComponentText(tr("infohud.light_overlay.chat") + modeName));
+        }
     }
 
     private static int getColor(int light) {

@@ -21,7 +21,7 @@ public class KeyBindHandler {
     @SubscribeEvent
     public void onKeyInput(InputEvent.KeyInputEvent event) {
         if (toggleLight.isPressed()) {
-            LightLevelOverlayRenderer.enabled = !LightLevelOverlayRenderer.enabled;
+            LightLevelOverlayRenderer.toggleMode();
         }
     }
 }
