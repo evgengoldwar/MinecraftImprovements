@@ -1,6 +1,5 @@
 package InfoHUD.Hud.Core.InfoLines;
 
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
 import InfoHUD.Configs.HudConfig;

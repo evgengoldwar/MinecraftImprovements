@@ -1,9 +1,13 @@
 package InfoHUD;
 
 import net.minecraftforge.client.ClientCommandHandler;
+import net.minecraftforge.common.MinecraftForge;
 
 import InfoHUD.Commands.CommandHUD;
 import InfoHUD.Hud.Hud;
+import InfoHUD.KeyBinds.KeyBindHandler;
+import InfoHUD.LightOverlay.OverlayEventHandler;
+import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 
 public class ClientProxy extends CommonProxy {
@@ -18,5 +22,10 @@ public class ClientProxy extends CommonProxy {
         Hud.initEvent();
 
         ClientCommandHandler.instance.registerCommand(new CommandHUD());
+
+        MinecraftForge.EVENT_BUS.register(new OverlayEventHandler());
+        FMLCommonHandler.instance()
+            .bus()
+            .register(new KeyBindHandler());
     }
 }
