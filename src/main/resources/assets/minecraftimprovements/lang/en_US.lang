@@ -1,5 +1,6 @@
 minecraftimprovements.config.hud.name=§cHUD Settings
 minecraftimprovements.config.general.name=§cGeneral Settings
+infohud.config.light.name=§cLight Overlay Settings
 minecraftimprovements.config.hud.hud_general.name=§aHUD General
 minecraftimprovements.config.hud.hud_order.name=§aHUD Order
 minecraftimprovements.config.hud.hud_icons.name=§aHUD Icons

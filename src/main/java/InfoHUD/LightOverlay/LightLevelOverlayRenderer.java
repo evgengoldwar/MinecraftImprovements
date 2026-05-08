@@ -2,6 +2,7 @@ package InfoHUD.LightOverlay;
 
 import static InfoHUD.Utils.Utils.tr;
 
+import InfoHUD.Configs.LightOverlayConfig;
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.FontRenderer;
@@ -46,6 +47,20 @@ public class LightLevelOverlayRenderer {
 
         FontRenderer fr = mc.fontRenderer;
 
+        float snapYaw;
+        if (LightOverlayConfig.DisableFollowNumber) {
+            snapYaw = 180;
+        } else {
+            float yaw = mc.renderViewEntity.rotationYaw;
+            while (yaw < 0) yaw += 360;
+            yaw = yaw % 360;
+
+            if (yaw >= 315 || yaw < 45) snapYaw = 0;
+            else if (yaw < 135) snapYaw = 270;
+            else if (yaw < 225) snapYaw = 180;
+            else snapYaw = 90;
+        }
+
         int bx = (int) Math.floor(player.posX);
         int by = (int) Math.floor(player.posY);
         int bz = (int) Math.floor(player.posZ);
@@ -80,10 +95,11 @@ public class LightLevelOverlayRenderer {
                     GL11.glPushMatrix();
                     GL11.glTranslated(x + 0.5, y + 1.005, z + 0.5);
 
-                    GL11.glRotatef(90F, 1F, 0F, 0F);
-                    GL11.glRotatef(180F, 0F, 0F, 1F);
+                    GL11.glRotatef(snapYaw, 0.0F, 1.0F, 0.0F);
 
-                    GL11.glScalef(-0.08F, -0.08F, 0.08F);
+                    GL11.glRotatef(90F, 1F, 0F, 0F);
+
+                    GL11.glScalef(-0.05F, -0.05F, 0.05F);
 
                     int w = fr.getStringWidth(text);
                     fr.drawString(text, -w / 2, -fr.FONT_HEIGHT / 2, color);

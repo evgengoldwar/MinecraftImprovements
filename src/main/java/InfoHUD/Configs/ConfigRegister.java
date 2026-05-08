@@ -8,6 +8,7 @@ public class ConfigRegister {
     public static void init() {
         register(HudConfig.class);
         register(GeneralConfig.class);
+        register(LightOverlayConfig.class);
     }
 
     private static void register(Class<?> configClass) {
