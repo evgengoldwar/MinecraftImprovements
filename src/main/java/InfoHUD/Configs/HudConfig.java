@@ -253,6 +253,10 @@ public class HudConfig {
         @Config.DefaultBoolean(true)
         @Config.Order(16)
         public boolean SessionTimeEnable;
+
+        @Config.DefaultBoolean(true)
+        @Config.Order(17)
+        public boolean CountItemEnable;
     }
 
 }

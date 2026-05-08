@@ -22,6 +22,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import InfoHUD.Configs.HudConfig;
 import InfoHUD.Hud.Core.InfoLine;
+import InfoHUD.Hud.Core.InfoLines.InfoCountItem;
 import InfoHUD.Hud.Hud;
 
 @Mixin(value = GuiIngameForge.class)
@@ -55,6 +56,12 @@ public class GuiIngameMixin extends GuiIngame {
 
         for (InfoLine line : orderedLines) {
             if (!line.canRender()) continue;
+
+            if (line instanceof InfoCountItem infoCountItem) {
+                drawHeldItemCounter(infoCountItem, width, height);
+                continue;
+            }
+
             drawHudInfo(line.getLineString(), HudConfig.hudGeneral.HudX, hudY, line.getChachedItemStack());
             hudY += 11;
         }
@@ -97,6 +104,45 @@ public class GuiIngameMixin extends GuiIngame {
         } else {
             fr.drawStringWithShadow(string, x + 4, y + 4, 14737632);
         }
+
+        GL11.glPopMatrix();
+    }
+
+    @Unique
+    private void drawHeldItemCounter(InfoCountItem line, int width, int height) {
+
+        ItemStack heldItem = mc.thePlayer.getHeldItem();
+
+        if (heldItem == null) {
+            return;
+        }
+
+        String text = line.getLineString();
+
+        FontRenderer fr = mc.fontRenderer;
+        RenderItem renderItem = RenderItem.getInstance();
+
+        int hotbarX = width / 2 - 91;
+
+        int x = hotbarX - 22;
+        int y = height - 19;
+
+        GL11.glPushMatrix();
+
+        RenderHelper.enableGUIStandardItemLighting();
+
+        GL11.glEnable(GL12.GL_RESCALE_NORMAL);
+        GL11.glEnable(GL11.GL_COLOR_MATERIAL);
+
+        renderItem.zLevel = 100.0F;
+
+        renderItem.renderItemAndEffectIntoGUI(fr, mc.renderEngine, heldItem, x, y);
+
+        renderItem.zLevel = 0.0F;
+
+        GL11.glDisable(GL11.GL_LIGHTING);
+
+        fr.drawStringWithShadow(text, x - fr.getStringWidth(text) - 2, y + 4, 16777215);
 
         GL11.glPopMatrix();
     }

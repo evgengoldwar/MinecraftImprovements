@@ -9,6 +9,7 @@ import InfoHUD.Configs.HudConfig;
 import InfoHUD.Hud.Core.InfoLine;
 import InfoHUD.Hud.Core.InfoLines.InfoBiome;
 import InfoHUD.Hud.Core.InfoLines.InfoBloodMagic;
+import InfoHUD.Hud.Core.InfoLines.InfoCountItem;
 import InfoHUD.Hud.Core.InfoLines.InfoDimension;
 import InfoHUD.Hud.Core.InfoLines.InfoDirection;
 import InfoHUD.Hud.Core.InfoLines.InfoFPS;
@@ -58,6 +59,7 @@ public class Hud {
         lines.add(new InfoWorldTime(HudConfig.hudOrder.PlayTimeOrder, false));
         lines.add(new InfoWorldTime(HudConfig.hudOrder.WorldTimeOrder, true));
         lines.add(new InfoSessionTime(HudConfig.hudOrder.SessionTimeOrder));
+        lines.add(new InfoCountItem(0));
 
         if (Loader.isModLoaded(HudUtils.BLOOD_MAGIC_ID)) {
             lines.add(new InfoBloodMagic(HudConfig.hudOrder.LpOrder));
