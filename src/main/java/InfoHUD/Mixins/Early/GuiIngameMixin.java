@@ -127,7 +127,7 @@ public class GuiIngameMixin extends GuiIngame {
 
         int x = hotbarX - 22;
 
-        if (BackhandHandler.isBackhandAvailable() && BackhandHandler.getOffhandItem(mc.thePlayer) != null) {
+        if (BackhandHandler.isLoaded() && BackhandHandler.getBackHandItemStack(mc.thePlayer) != null) {
             x = hotbarX - 55;
         }
 
