@@ -39,7 +39,7 @@ public class NetHandlerPlayerClientMixin {
         }
         if (packet.func_149122_c()
             .equals(Minecraft.getMinecraft().thePlayer.getDisplayName())) {
-            DataStorage.ping = packet.func_149120_e();
+            DataStorage.setPlayerPing(Minecraft.getMinecraft().thePlayer.getUniqueID(), packet.func_149120_e());
         }
     }
 

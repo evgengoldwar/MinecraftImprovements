@@ -36,7 +36,11 @@ public class Hud {
         FMLCommonHandler.instance()
             .bus()
             .register(new TickListener());
-        MinecraftForge.EVENT_BUS.register(new JoinWorldEvent());
+        JoinWorldEvent joinWorldEvent = new JoinWorldEvent();
+        MinecraftForge.EVENT_BUS.register(joinWorldEvent);
+        FMLCommonHandler.instance()
+            .bus()
+            .register(joinWorldEvent);
 
         if (Loader.isModLoaded(HudUtils.BLOOD_MAGIC_ID)) {
             MinecraftForge.EVENT_BUS.register(new BloodMagicEvent());

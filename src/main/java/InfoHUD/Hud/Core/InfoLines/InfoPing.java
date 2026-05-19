@@ -17,7 +17,7 @@ public class InfoPing extends InfoLine {
 
     @Override
     public String getLineString() {
-        return tr("info_ping", DataStorage.ping);
+        return tr("info_ping", DataStorage.getPlayerPing(playerMP.getUniqueID()));
     }
 
     @Override

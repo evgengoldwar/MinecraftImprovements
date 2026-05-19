@@ -2,7 +2,9 @@ package InfoHUD.Hud.Core;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Set;
 import java.util.UUID;
 
@@ -14,15 +16,25 @@ public class DataStorage {
 
     public static double tps = -1;
     public static double mspt = -1;
-    public static int ping = 0;
     public static int serverMemUsed = -1;
     public static int serverMemAllocated = -1;
     public static int serverMemMax = -1;
     public static long worldSeed = -1;
-    public static long sessionStartNano = System.nanoTime();
     public static final Set<UUID> seedSubscribers = new HashSet<>();
     public static final Set<UUID> tpsSubscribers = new HashSet<>();
     public static final Set<UUID> memSubscribers = new HashSet<>();
+    private static final Map<UUID, PlayerStats> playerStatsMap = new HashMap<>();
+
+    private static class PlayerStats {
+
+        long sessionStartNano;
+        int ping;
+
+        PlayerStats() {
+            this.sessionStartNano = System.nanoTime();
+            this.ping = 0;
+        }
+    }
 
     public static void getClientTPS() {
         try {
@@ -63,9 +75,42 @@ public class DataStorage {
     }
 
     public static void unsubscribeAll(EntityPlayerMP player) {
-        tpsSubscribers.remove(player.getUniqueID());
-        memSubscribers.remove(player.getUniqueID());
-        seedSubscribers.remove(player.getUniqueID());
+        UUID uuid = player.getUniqueID();
+        tpsSubscribers.remove(uuid);
+        memSubscribers.remove(uuid);
+        seedSubscribers.remove(uuid);
+    }
+
+    public static void initPlayer(UUID uuid) {
+        playerStatsMap.put(uuid, new PlayerStats());
+    }
+
+    public static void removePlayer(UUID uuid) {
+        playerStatsMap.remove(uuid);
+        tpsSubscribers.remove(uuid);
+        memSubscribers.remove(uuid);
+        seedSubscribers.remove(uuid);
+    }
+
+    public static long getPlayerSessionStart(UUID uuid) {
+        PlayerStats stats = playerStatsMap.get(uuid);
+        return stats != null ? stats.sessionStartNano : System.nanoTime();
+    }
+
+    public static int getPlayerPing(UUID uuid) {
+        PlayerStats stats = playerStatsMap.get(uuid);
+        return stats != null ? stats.ping : 0;
+    }
+
+    public static void setPlayerPing(UUID uuid, int ping) {
+        PlayerStats stats = playerStatsMap.get(uuid);
+        if (stats != null) {
+            stats.ping = ping;
+        } else {
+            PlayerStats newStats = new PlayerStats();
+            newStats.ping = ping;
+            playerStatsMap.put(uuid, newStats);
+        }
     }
 
     public static void reset() {
@@ -75,6 +120,5 @@ public class DataStorage {
         serverMemMax = -1;
         serverMemUsed = -1;
         worldSeed = -1;
-        sessionStartNano = System.nanoTime();
     }
 }

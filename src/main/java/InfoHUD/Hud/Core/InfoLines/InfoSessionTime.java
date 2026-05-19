@@ -12,7 +12,11 @@ public class InfoSessionTime extends InfoLine {
 
     @Override
     public String getLineString() {
-        long elapsedNano = System.nanoTime() - DataStorage.sessionStartNano;
+        if (playerMP == null) {
+            return tr("info_sessiontime.0", 0);
+        }
+
+        long elapsedNano = System.nanoTime() - DataStorage.getPlayerSessionStart(playerMP.getUniqueID());
         long elapsedSeconds = elapsedNano / 1_000_000_000L;
 
         long hours = elapsedSeconds / 3600;
