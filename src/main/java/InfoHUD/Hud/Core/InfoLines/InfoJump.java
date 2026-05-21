@@ -1,5 +1,6 @@
 package InfoHUD.Hud.Core.InfoLines;
 
+import net.minecraft.client.Minecraft;
 import net.minecraft.stats.StatList;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.living.LivingEvent;
@@ -10,11 +11,13 @@ import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 
 public class InfoJump extends InfoLine {
 
-    protected static int jumpCount = 0;
+    private static int jumpCount = 0;
+    private static boolean registered = false;
 
     public InfoJump(int order) {
         super(order);
-        MinecraftForge.EVENT_BUS.register(this);
+        registerEventHandler();
+        jumpCount = 0;
     }
 
     @Override
@@ -38,6 +41,22 @@ public class InfoJump extends InfoLine {
     public void onPlayerJump(LivingEvent.LivingJumpEvent event) {
         if (event.entity == playerMP) {
             jumpCount++;
+        }
+    }
+
+    private static void registerEventHandler() {
+        if (!registered) {
+            MinecraftForge.EVENT_BUS.register(new JumpEvent());
+            registered = true;
+        }
+    }
+
+    public static class JumpEvent {
+        @SubscribeEvent
+        public void onPlayerJump(LivingEvent.LivingJumpEvent event) {
+            if (event.entity == Minecraft.getMinecraft().thePlayer) {
+                jumpCount++;
+            }
         }
     }
 }
